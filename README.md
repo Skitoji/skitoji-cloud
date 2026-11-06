@@ -2,7 +2,7 @@
 
 Portafolio personal de Samuel Monroy, Hypermedia Designer & Filmmaker en Cartagena, Colombia.
 
-Sitio estático de una sola página, sin dependencias ni compilación. About me y Skills comparten sección. Incluye proyectos sincronizados desde Behance, servicios, contacto, español/inglés, diseño responsive y una escultura 3D procedural animada con controles de pausa y malla. Respeta la preferencia de movimiento reducido y detiene la animación fuera de pantalla o al perder foco.
+Sitio estático de una sola página, sin dependencias ni compilación. About me y Skills comparten sección. Incluye proyectos sincronizados desde Behance, servicios, contacto, español/inglés, diseño responsive y una escultura 3D procedural animada con controles de pausa y malla. La escultura empieza a girar al cargar. Con movimiento reducido gira más despacio y no se inclina con el puntero; el botón permite pausarla. Se suspende temporalmente fuera de pantalla o al ocultar la pestaña.
 
 ## Estructura
 
@@ -42,6 +42,7 @@ Desde la raíz del repositorio, con Node 18+ y Python 3:
 node --check skitoji-landing/app.js
 node --check skitoji-landing/scene.js
 node tests/portfolio.test.cjs
+node tests/scene.test.cjs
 python3 tests/check_static.py
 ```
 

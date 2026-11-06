@@ -14,10 +14,10 @@
   const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
   const TAU = Math.PI * 2;
   let language = document.documentElement.lang === 'es' ? 'es' : 'en';
-  let paused = preference.matches;
+  // Start on load; only the pause button changes the visitor's playback choice.
+  let paused = false;
   let wireframe = false;
   let visible = true;
-  let focused = document.hasFocus ? document.hasFocus() : true;
   let frame = 0;
   let clock = 0;
   let lastTime = 0;
@@ -157,7 +157,7 @@
   }
 
   function canAnimate() {
-    return !paused && visible && focused && !document.hidden;
+    return !paused && visible && !document.hidden;
   }
 
   function animate(now) {
@@ -166,7 +166,7 @@
     const elapsed = lastTime ? Math.min(0.06, (now - lastTime) / 1000) : 0;
     // Rendering at 30 fps keeps mobile work bounded; motion time is continuous.
     if (!lastTime || elapsed >= 0.031) {
-      clock += elapsed;
+      clock += elapsed * (preference.matches ? 0.35 : 1);
       lastTime = now;
       pointerX += (targetX - pointerX) * 0.08;
       pointerY += (targetY - pointerY) * 0.08;
@@ -240,8 +240,7 @@
     language = requested === 'es' ? 'es' : 'en';
     updateControls();
   });
-  const preferenceChanged = (event) => {
-    paused = event.matches;
+  const preferenceChanged = () => {
     targetX = targetY = pointerX = pointerY = 0;
     updateControls();
     render();
@@ -259,8 +258,6 @@
     container.addEventListener('pointerleave', () => { targetX = targetY = 0; });
   }
   document.addEventListener('visibilitychange', synchronizeAnimation);
-  window.addEventListener('focus', () => { focused = true; synchronizeAnimation(); });
-  window.addEventListener('blur', () => { focused = false; synchronizeAnimation(); });
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       visible = entries.some((entry) => entry.isIntersecting);
