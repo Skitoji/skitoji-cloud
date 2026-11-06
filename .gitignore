@@ -1,0 +1,11 @@
+# Secrets — never commit
+.env
+
+# Backups / logs
+*.bak
+*.bak-*
+*.log
+
+# Python
+__pycache__/
+*.pyc

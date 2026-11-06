@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKITOJI | Contact</title>
+    <meta name="description" content="Contact SKITOJI (Samuel Monroy) — available for freelance, based in Cartagena, Colombia.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SKITOJI | Contact">
+    <meta property="og:description" content="Available for freelance — based in Cartagena, Colombia.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (Inline SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230A0A0A'/><text y='70' x='20' fill='%23BFFF00' font-family='Arial' font-size='80' font-weight='bold'>S</text></svg>">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="contact">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="nav-logo">SKITOJI</a>
+        <div class="nav-links">
+            <a href="/work" class="magnetic" data-i18n="nav.work">WORK</a>
+            <a href="/about" class="magnetic" data-i18n="nav.about">ABOUT</a>
+            <a href="/skills" class="magnetic" data-i18n="nav.skills">SKILLS</a>
+            <a href="/services" class="magnetic" data-i18n="nav.services">SERVICES</a>
+            <a href="/contact" class="magnetic" data-i18n="nav.contact">CONTACT</a>
+        </div>
+        <div class="nav-actions">
+            <div class="lang-toggle" id="langToggle">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+            <button class="hamburger magnetic" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HUD Elements -->
+    <div class="hud-element hud-bottom-left mono" id="localTime" data-i18n-prefix="hud.timePrefix">LOCAL TIME: --:--:--</div>
+    <div class="hud-element hud-bottom-right mono" data-i18n="hud.status">STATUS: AVAILABLE</div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <h2 class="title-massive reveal" style="font-size: 7vw; line-height: 0.8; margin-bottom: 4rem;" data-i18n-html="contact.title">
+                    LET'S BUILD SOMETHING<br>
+                    <span style="color: var(--accent-primary)">EPIC TOGETHER</span>
+                </h2>
+
+                <div class="contact-grid">
+                    <form class="contact-form reveal">
+                        <input type="hidden" name="form_time" id="formTime" value="">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="YOUR NAME" required class="interactive" data-i18n-placeholder="contact.name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="YOUR EMAIL" required class="interactive" data-i18n-placeholder="contact.email">
+                        </div>
+                        <div class="form-group">
+                            <select name="projectType" required class="interactive">
+                                <option value="" disabled selected data-i18n="contact.projectType">PROJECT TYPE</option>
+                                <option value="web" data-i18n="contact.opt1">WEB DESIGN / HYPERMEDIA</option>
+                                <option value="film" data-i18n="contact.opt2">FILM / VIDEO</option>
+                                <option value="brand">BRANDING</option>
+                                <option value="other" data-i18n="contact.opt4">OTHER</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="TELL ME ABOUT YOUR MISSION..." required class="interactive" data-i18n-placeholder="contact.message"></textarea>
+                        </div>
+                        <div class="form-group" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        <button type="submit" class="submit-btn interactive" data-i18n="contact.submit">INITIATE SEQUENCE</button>
+                    </form>
+
+                    <div class="contact-info reveal">
+                        <div>
+                            <span class="mono" style="color: var(--text-secondary); display: block; margin-bottom: 1rem;" data-i18n="contact.directLine">// DIRECT LINE</span>
+                            <a href="mailto:smonroysalas@skitoji.cloud" class="contact-link interactive">smonroysalas@skitoji.cloud</a>
+                        </div>
+                        
+                        <div>
+                            <span class="mono" style="color: var(--text-secondary); display: block; margin-bottom: 1rem;" data-i18n="contact.socialLabel">// SOCIAL NETWORKS</span>
+                            <div class="social-links">
+                                <a href="https://www.youtube.com/@skitoji" target="_blank" rel="noopener noreferrer" class="social-link interactive magnetic">
+                                    <svg viewBox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/></svg>
+                                </a>
+                                <a href="https://www.instagram.com/skkitoji/" target="_blank" rel="noopener noreferrer" class="social-link interactive magnetic">
+                                    <svg viewBox="0 0 24 24"><path d="M12,2.163c3.204,0,3.584,0.012,4.85,0.07c3.252,0.148,4.771,1.691,4.919,4.919c0.058,1.265,0.069,1.645,0.069,4.849 c0,3.205-0.012,3.584-0.069,4.849c-0.149,3.225-1.664,4.771-4.919,4.919c-1.266,0.058-1.644,0.07-4.85,0.07 s-3.584-0.012-4.849-0.07c-3.26-0.149-4.771-1.699-4.919-4.92c-0.058-1.265-0.07-1.644-0.07-4.849c0-3.204,0.013-3.583,0.07-4.849 c0.149-3.227,1.664-4.771,4.919-4.919C8.416,2.175,8.796,2.163,12,2.163 M12,0C8.741,0,8.333,0.014,7.053,0.072 C2.695,0.272,0.272,2.69,0.073,7.052C0.014,8.333,0,8.741,0,12c0,3.259,0.014,3.668,0.072,4.948c0.2,4.358,2.618,6.781,6.98,6.979 C8.333,23.986,8.741,24,12,24c3.259,0,3.668-0.014,4.948-0.072c4.354-0.2,6.782-2.618,6.979-6.98C23.986,15.668,24,15.259,24,12 c0-3.259-0.014-3.668-0.072-4.948c-0.2-4.358-2.623-6.78-6.979-6.979C15.668,0.014,15.259,0,12,0z M12,5.838 c-3.403,0-6.162,2.759-6.162,6.162c0,3.404,2.759,6.163,6.162,6.163c3.404,0,6.162-2.759,6.162-6.163 C18.162,8.597,15.404,5.838,12,5.838z M12,16.005c-2.21,0-4.005-1.794-4.005-4.005c0-2.21,1.795-4.004,4.005-4.004 c2.21,0,4.004,1.794,4.004,4.004C16.004,14.21,14.21,16.005,12,16.005z M18.406,4.155c-0.799,0-1.446,0.648-1.446,1.446 c0,0.799,0.647,1.446,1.446,1.446c0.799,0,1.446-0.647,1.446-1.446C19.852,4.803,19.205,4.155,18.406,4.155z"/></svg>
+                                </a>
+                                <a href="https://www.behance.net/skitoji" target="_blank" rel="noopener noreferrer" class="social-link interactive magnetic">
+                                    <svg viewBox="0 0 24 24"><path d="M22,7h-7v-2h7v2zm1.726,10c-.442,1.297-2.029,3-5.101,3-3.074,0-5.564-1.729-5.564-5.675,0-3.918,2.835-6.325,5.5-6.325,2.97,0,5.655,1.562,5.655,4.703,0,1.073-.111,2.546-2.146,2.546h-6.273c.183,1.93,1.6,2.628,3.15,2.628,1.442,0,2.152-.777,2.56-1.554h2.219zm-3.21-3.606c-.157-1.577-1.411-2.071-2.301-2.071-1.049,0-1.954.767-2.21,2.071h4.511zm-15.426,5.606h-5.09v-16h5.45c2.723,0,4.618,1.154,4.618,3.771,0,1.96-1.428,2.78-2.607,3.178,1.385.176,3.15.932,3.15,3.619,0,3.31-2.625,5.432-5.521,5.432zm-2.09-6.843h2.646c1.603,0,2.449-.785,2.449-2.021,0-1.587-1.397-2.022-2.583-2.022h-2.512v4.043zm0,1.803v3.136h2.825c1.295,0,2.812-.486,2.812-2.071,0-1.89-1.521-2.065-2.824-2.065h-2.813z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="availability" style="width: fit-content;">
+                            <div class="status-dot"></div>
+                            <span data-i18n="contact.available">AVAILABLE FOR FREELANCE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <div class="hazard-tape"></div>
+    <footer>
+        <div class="mono" style="color: var(--text-secondary)" data-i18n="footer.copyright">© 2026 SKITOJI.CLOUD // ALL RIGHTS RESERVED</div>
+        <div class="barcode" style="width: 80px; height: 20px;"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/app.js"></script>
+</body>
+</html>
