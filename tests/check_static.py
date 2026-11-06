@@ -55,6 +55,32 @@ class PortfolioTests(unittest.TestCase):
         for p in projects:
             self.assertIn(p['url'],self.text)
             self.assertIn(p['cover'],self.text)
+    def test_identity_assets_and_discovery_controls(self):
+        for tag,a in self.doc.tags:
+            if tag=='img' and a.get('src','').startswith('/assets/'):
+                self.assertTrue((ROOT/a['src'].lstrip('/')).is_file())
+                self.assertIn('width',a)
+                self.assertIn('height',a)
+                self.assertIn('alt',a)
+        nodes=[a for t,a in self.doc.tags if t=='button' and 'data-spark' in a]
+        self.assertEqual({a['data-spark'] for a in nodes},{'shape','motion','story'})
+        for a in nodes:
+            self.assertEqual(a['type'],'button')
+            self.assertEqual(a['aria-pressed'],'false')
+            self.assertEqual(a['aria-controls'],'studioMessage')
+        group=next(a for _,a in self.doc.tags if a.get('id')=='studioPlay')
+        self.assertIn('hidden',group)
+        self.assertNotIn('overflow: hidden',self.text)
+    def test_vector_assets_are_well_formed_and_have_no_external_dependencies(self):
+        import xml.etree.ElementTree as ET
+        for p in [ROOT/'favicon.svg', *sorted((ROOT/'assets').glob('*.svg'))]:
+            doc=ET.fromstring(p.read_text())
+            self.assertIn('viewBox',doc.attrib)
+            self.assertTrue(any(el.tag.endswith('path') for el in doc.iter()))
+            for el in doc.iter():
+                self.assertFalse(el.tag.endswith('script'))
+                self.assertFalse(el.tag.endswith('image'))
+                self.assertFalse(any(k.startswith('on') for k in el.attrib))
     def test_all_translation_attributes_are_paired(self):
         for _,a in self.doc.tags:
             self.assertEqual('data-es' in a,'data-en' in a)

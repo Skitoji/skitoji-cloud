@@ -12,6 +12,8 @@ skitoji-landing/
   style.css                  Diseño responsive + fuentes locales
   app.js                     Idiomas, navegación, filtros, sync y formulario
   scene.js                   Escultura 3D original, Canvas 2D, sin librerías
+  delight.js                 Experimento opcional Forma / Movimiento / Historia
+  assets/                    Símbolo S Frame vectorial (azul, tinta y marfil)
   favicon.svg                Icono local
   about.html, skills.html    Compatibilidad: redirigen a /#about y /#skills
   work.html, services.html, contact.html   Compatibilidad con rutas anteriores
@@ -23,6 +25,7 @@ behance-sync/                Sincronizador RSS existente
   behance-categories.json
 tests/                       Verificaciones sin dependencias
 DEPLOY.md                    Guía para el asistente de la VPS
+BRAND.md                     Identidad S Frame y uso del logo
 ```
 
 ## Contenido e interacción
@@ -34,6 +37,10 @@ DEPLOY.md                    Guía para el asistente de la VPS
 - Teclado, foco visible, etiquetas de formulario, estados de envío y menú móvil con Escape. Sin cursor personalizado ni contenido oculto al fallar JS.
 - No se añaden dependencias, fuentes remotas, `eval`, handlers inline ni estilos inline. Las portadas siguen usando los enlaces HTTPS de Behance.
 
+## Identidad e interacciones
+
+Logo original S Frame en SVG, integrado en navegación, favicon, About me y footer. El experimento opcional Forma / Movimiento / Historia responde al toque y al teclado. La introducción del logo dura 600 ms y no bloquea el sitio. Ambos respetan movimiento reducido. Ver [BRAND.md](BRAND.md).
+
 ## Comprobaciones
 
 Desde la raíz del repositorio, con Node 18+ y Python 3:
@@ -43,6 +50,7 @@ node --check skitoji-landing/app.js
 node --check skitoji-landing/scene.js
 node tests/portfolio.test.cjs
 node tests/scene.test.cjs
+node tests/delight.test.cjs
 python3 tests/check_static.py
 ```
 
