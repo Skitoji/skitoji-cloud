@@ -1,462 +1,270 @@
-        // --- Internationalization System ---
-        const translations = {
-            en: {
-                'nav.work': 'WORK',
-                'nav.about': 'ABOUT',
-                'nav.skills': 'SKILLS',
-                'nav.services': 'SERVICES',
-                'nav.contact': 'CONTACT',
-                'hero.creative': 'CREATIVE',
-                'hero.portfolio': 'PORTFOLIO',
-                'hero.role': 'HYPERMEDIA DESIGNER & FILMMAKER',
-                'hero.tagline': 'I design digital experiences that are <span>bold</span>, <span>immersive</span>, and <span>impossible to ignore</span>.',
-                'hud.status': 'STATUS: AVAILABLE',
-                'hud.timePrefix': 'LOCAL TIME',
-                'marquee': '★ HYPERMEDIA DESIGN ★ FILMMAKING ★ MOTION GRAPHICS ★ BRANDING ★ UI/UX ★ ART DIRECTION ★ CREATIVE STRATEGY',
-                'works.title': 'SELECTED WORKS',
-                'works.cat.branding': 'BRANDING',
-                'works.cat.film': 'FILM',
-                'works.cat.uiux': 'UI/UX DESIGN',
-                'works.cat.motion': 'MOTION',
-                'works.cat.3d': '3D / VFX',
-                'works.cat.typography': 'TYPOGRAPHY',
-                'works.cat.project': 'PROJECT',
-                'case.title': 'CASE STUDY',
-                'case.viewProject': 'VIEW PROJECT →',
-                'case.challenge': 'THE CHALLENGE',
-                'case.challengeDesc': 'Redefining visual identity for a cyberpunk-themed creative festival, ensuring it stands out in a saturated market while remaining scalable across digital and physical mediums.',
-                'case.solution': 'THE SOLUTION',
-                'case.solutionDesc': 'Implemented a dynamic design system using acid colors, brutalist typography, and generative textures that adapt to user interaction and ambient sound.',
-                'case.result': 'THE RESULT',
-                'case.resultDesc': 'A unified, striking brand presence that resonated deeply with the target audience.',
-                'case.engagement': 'ENGAGEMENT',
-                'about.title': 'WHO I AM',
-                'about.subtitle': '"NOT A STUDIO — JUST ME"',
-                'about.bio': 'Hypermedia Designer with a cinematic vision. I transform ideas into immersive digital experiences that challenge the boundaries between design, cinema, and technology. Every project is a mission, every pixel has purpose.',
-                'about.yearsExp': 'Years Exp',
-                'about.projects': 'Projects',
-                'about.clients': 'Clients',
-                'about.location': 'BASED IN CARTAGENA, COL',
-                'skills.title': 'SKILLS I USE',
-                'skills.coreThreads': '// CORE THREADS OF MY WORK',
-                'skills.thread1': 'PERCEPTUAL INTERFACES',
-                'skills.thread2': 'IMMERSIVE NARRATIVES',
-                'skills.thread3': 'DESIGN SYSTEMS',
-                'skills.thread4': 'VISUAL STORYTELLING',
-                'services.title': 'WHAT I DO',
-                'services.s1.title': 'Hypermedia Design <span>↗</span>',
-                'services.s1.desc': 'Creation of interactive digital experiences that combine multiple media into a cohesive narrative.',
-                'services.s2.title': 'Audiovisual Production <span>↗</span>',
-                'services.s2.desc': 'Direction, filming, and post-production with a professional cinematic approach.',
-                'services.s3.title': 'Art Direction <span>↗</span>',
-                'services.s3.desc': 'Conceptual and visual aesthetic definition for complex and ambitious projects.',
-                'services.s4.title': 'Branding & Identity <span>↗</span>',
-                'services.s4.desc': 'Building brands with solid, disruptive, and unforgettable visual narratives.',
-                'services.s5.title': 'Motion Graphics <span>↗</span>',
-                'services.s5.desc': 'Animation and motion design for interfaces, campaigns, and audiovisual content.',
-                'services.s6.title': 'Creative Consulting <span>↗</span>',
-                'services.s6.desc': 'Strategic advice to elevate the quality and visual coherence of your project.',
-                'contact.title': 'LET\'S BUILD SOMETHING<br><span style="color: var(--accent-primary)">EPIC TOGETHER</span>',
-                'contact.name': 'YOUR NAME',
-                'contact.email': 'YOUR EMAIL',
-                'contact.projectType': 'PROJECT TYPE',
-                'contact.opt1': 'WEB DESIGN / HYPERMEDIA',
-                'contact.opt2': 'FILM / VIDEO',
-                'contact.opt4': 'OTHER',
-                'contact.message': 'TELL ME ABOUT YOUR MISSION...',
-                'contact.submit': 'INITIATE SEQUENCE',
-                'contact.directLine': '// DIRECT LINE',
-                'contact.socialLabel': '// SOCIAL NETWORKS',
-                'contact.available': 'AVAILABLE FOR FREELANCE',
-                'footer.copyright': '© 2026 SKITOJI.CLOUD // ALL RIGHTS RESERVED'
-            },
-            es: {
-                'nav.work': 'TRABAJO',
-                'nav.about': 'SOBRE MÍ',
-                'nav.skills': 'HABILIDADES',
-                'nav.services': 'SERVICIOS',
-                'nav.contact': 'CONTACTO',
-                'hero.creative': 'PORTAFOLIO',
-                'hero.portfolio': 'CREATIVO',
-                'hero.role': 'DISEÑADOR HIPERMEDIA & CINEASTA',
-                'hero.tagline': 'Diseño experiencias digitales que son <span>audaces</span>, <span>inmersivas</span> e <span>imposibles de ignorar</span>.',
-                'hud.status': 'ESTADO: DISPONIBLE',
-                'hud.timePrefix': 'HORA LOCAL',
-                'marquee': '★ DISEÑO HIPERMEDIA ★ CINE ★ MOTION GRAPHICS ★ BRANDING ★ UI/UX ★ DIRECCIÓN DE ARTE ★ ESTRATEGIA CREATIVA',
-                'works.title': 'TRABAJOS SELECTOS',
-                'works.cat.branding': 'BRANDING',
-                'works.cat.film': 'CINE',
-                'works.cat.uiux': 'DISEÑO UI/UX',
-                'works.cat.motion': 'MOTION',
-                'works.cat.3d': '3D / VFX',
-                'works.cat.typography': 'TIPOGRAFÍA',
-                'works.cat.project': 'PROYECTO',
-                'case.title': 'CASO DE ESTUDIO',
-                'case.viewProject': 'VER PROYECTO →',
-                'case.challenge': 'EL DESAFÍO',
-                'case.challengeDesc': 'Redefinir la identidad visual para un festival creativo cyberpunk, asegurando que destaque en un mercado saturado manteniéndose escalable en medios digitales y físicos.',
-                'case.solution': 'LA SOLUCIÓN',
-                'case.solutionDesc': 'Implementamos un sistema de diseño dinámico usando colores ácidos, tipografía brutalista y texturas generativas que se adaptan a la interacción del usuario y al sonido ambiental.',
-                'case.result': 'EL RESULTADO',
-                'case.resultDesc': 'Una presencia de marca unificada e impactante que resonó profundamente con la audiencia objetivo.',
-                'case.engagement': 'ENGAGEMENT',
-                'about.title': 'QUIÉN SOY',
-                'about.subtitle': '"NO ES UN ESTUDIO — SOY SOLO YO"',
-                'about.bio': 'Diseñador Hipermedia con visión cinematográfica. Transformo ideas en experiencias digitales inmersivas que desafían los límites entre el diseño, el cine y la tecnología. Cada proyecto es una misión, cada pixel tiene propósito.',
-                'about.yearsExp': 'Años Exp',
-                'about.projects': 'Proyectos',
-                'about.clients': 'Clientes',
-                'about.location': 'BASADO EN CARTAGENA, COL',
-                'skills.title': 'HERRAMIENTAS QUE USO',
-                'skills.coreThreads': '// HILOS CENTRALES DE MI TRABAJO',
-                'skills.thread1': 'INTERFACES PERCEPTUALES',
-                'skills.thread2': 'NARRATIVAS INMERSIVAS',
-                'skills.thread3': 'SISTEMAS DE DISEÑO',
-                'skills.thread4': 'NARRATIVA VISUAL',
-                'services.title': 'QUÉ HAGO',
-                'services.s1.title': 'Diseño Hipermedia <span>↗</span>',
-                'services.s1.desc': 'Creación de experiencias digitales interactivas que combinan múltiples medios en una narrativa cohesiva.',
-                'services.s2.title': 'Producción Audiovisual <span>↗</span>',
-                'services.s2.desc': 'Dirección, filmación y post-producción con enfoque cinematográfico profesional.',
-                'services.s3.title': 'Dirección de Arte <span>↗</span>',
-                'services.s3.desc': 'Definición conceptual y estética visual para proyectos complejos y ambiciosos.',
-                'services.s4.title': 'Branding & Identidad <span>↗</span>',
-                'services.s4.desc': 'Construcción de marcas con narrativas visuales sólidas, disruptivas e inolvidables.',
-                'services.s5.title': 'Motion Graphics <span>↗</span>',
-                'services.s5.desc': 'Animación y diseño en movimiento para interfaces, campañas y contenido audiovisual.',
-                'services.s6.title': 'Consultoría Creativa <span>↗</span>',
-                'services.s6.desc': 'Asesoramiento estratégico para elevar la calidad y coherencia visual de tu proyecto.',
-                'contact.title': 'CONSTRUYAMOS ALGO<br><span style="color: var(--accent-primary)">ÉPICO JUNTOS</span>',
-                'contact.name': 'TU NOMBRE',
-                'contact.email': 'TU EMAIL',
-                'contact.projectType': 'TIPO DE PROYECTO',
-                'contact.opt1': 'DISEÑO WEB / HIPERMEDIA',
-                'contact.opt2': 'CINE / VIDEO',
-                'contact.opt4': 'OTRO',
-                'contact.message': 'CUÉNTAME SOBRE TU MISIÓN...',
-                'contact.submit': 'INICIAR SECUENCIA',
-                'contact.directLine': '// LÍNEA DIRECTA',
-                'contact.socialLabel': '// REDES SOCIALES',
-                'contact.available': 'DISPONIBLE PARA FREELANCE',
-                'footer.copyright': '© 2026 SKITOJI.CLOUD // TODOS LOS DERECHOS RESERVADOS'
-            }
-        };
+/* Progressive enhancement: all primary content is available without JavaScript. */
+(() => {
+  'use strict';
+  const categories = {
+    'works.cat.branding': { es: 'Branding', en: 'Branding' },
+    'works.cat.typography': { es: 'Tipografía', en: 'Typography' },
+    'works.cat.film': { es: 'Cine', en: 'Film' },
+    'works.cat.uiux': { es: 'Diseño UI/UX', en: 'UI/UX design' },
+    'works.cat.motion': { es: 'Motion', en: 'Motion' },
+    'works.cat.3d': { es: '3D / VFX', en: '3D / VFX' },
+    'works.cat.project': { es: 'Proyecto', en: 'Project' }
+  };
+  function safeURL(value, type = 'project') {
+    try {
+      const url = new URL(value);
+      if (url.protocol !== 'https:') return '';
+      if (type === 'project' && !['www.behance.net', 'behance.net'].includes(url.hostname)) return '';
+      if (type === 'image' && !(url.hostname === 'behance.net' || url.hostname.endsWith('.behance.net'))) return '';
+      return url.href;
+    } catch { return ''; }
+  }
+  function normalizeProjects(data) {
+    if (!data || !Array.isArray(data.projects)) throw new Error('Invalid projects response');
+    return data.projects.filter(p => p && typeof p.title === 'string' && safeURL(p.url)).map(p => ({
+      title: p.title, url: safeURL(p.url), cover: safeURL(p.cover, 'image'),
+      category: Object.hasOwn(categories, p.category) ? p.category : 'works.cat.project',
+      year: typeof p.year === 'string' || typeof p.year === 'number' ? String(p.year) : '',
+      description: typeof p.description === 'string' ? p.description : ''
+    }));
+  }
+  function contactPayload(fields, elapsed) {
+    return { name: String(fields.name || '').trim(), email: String(fields.email || '').trim(),
+      projectType: String(fields.projectType || ''), message: String(fields.message || '').trim(),
+      website: String(fields.website || ''), form_time: String(Math.floor(elapsed)) };
+  }
+  function delivered(responseOK, data) {
+    return responseOK && data?.ok === true && (data.email === true || data.discord === true);
+  }
+  if (typeof module !== 'undefined' && module.exports) module.exports = { safeURL, normalizeProjects, contactPayload, delivered };
+  if (typeof document === 'undefined') return;
 
-        let currentLang = 'en';
+  const $ = (selector) => document.querySelector(selector);
+  const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const startedAt = performance.now();
+  const form = $('#contactForm');
+  const status = $('#formStatus');
+  const submit = form?.querySelector('[type="submit"]');
+  let language = 'es';
+  let formBusy = false;
+  let statusKey = '';
+  let filter = 'all';
+  let feedState = '';
+  const messages = {
+    es: { sending: 'Enviando…', success: 'Mensaje enviado. Gracias por compartir tu idea; pronto estaremos en contacto.', error: 'No se pudo enviar. Intenta de nuevo o escríbeme al correo de la izquierda.', rate: 'Demasiados intentos. Espera unos minutos y vuelve a intentar.', long: 'El mensaje es demasiado largo. Acórtalo un poco o envíamelo por correo.', required: 'Completa los campos sin dejar solo espacios.', offline: 'No pude actualizar los proyectos. Puedes ver la selección guardada o visitar Behance.', empty: 'Todavía no hay proyectos publicados.' },
+    en: { sending: 'Sending…', success: 'Message sent. Thanks for sharing your idea; we’ll be in touch soon.', error: 'Could not send. Please try again or email me using the address alongside.', rate: 'Too many attempts. Wait a few minutes and try again.', long: 'This message is too long. Please shorten it or send it by email.', required: 'Please complete the fields without leaving only spaces.', offline: 'Could not refresh the projects. Browse the saved selection or visit Behance.', empty: 'No published projects yet.' }
+  };
+  document.body.classList.add('js-ready');
+  if (submit) submit.disabled = false;
+  function storageGet(key) { try { return localStorage.getItem(key); } catch { return null; } }
+  function storageSet(key, value) { try { localStorage.setItem(key, value); } catch { /* Privacy mode still works. */ } }
+  function refreshStatus() {
+    if (status) status.textContent = statusKey ? messages[language][statusKey] : '';
+    if (formBusy && submit) submit.querySelector('[data-submit-label]').textContent = messages[language].sending;
+  }
+  function setLanguage(next) {
+    language = next === 'en' ? 'en' : 'es';
+    document.documentElement.lang = language;
+    $$('[data-es][data-en]').forEach(el => { el.textContent = el.getAttribute('data-' + language); });
+    $$('[data-placeholder-es]').forEach(el => { el.placeholder = el.getAttribute('data-placeholder-' + language); });
+    $$('[data-lang]').forEach(el => { el.setAttribute('aria-pressed', String(el.dataset.lang === language)); });
+    $('.wordmark')?.setAttribute('aria-label', language === 'es' ? 'Skitoji — Inicio' : 'Skitoji — Home');
+    $('.footer-wordmark')?.setAttribute('aria-label', language === 'es' ? 'Skitoji — volver al inicio' : 'Skitoji — back to top');
+    $('#mainNav')?.setAttribute('aria-label', language === 'es' ? 'Principal' : 'Main navigation');
+    $('#workFilters')?.setAttribute('aria-label', language === 'es' ? 'Filtrar proyectos' : 'Filter projects');
+    $('.hero-art')?.setAttribute('aria-label', language === 'es' ? 'Estudio visual 3D interactivo' : 'Interactive 3D form study');
+    $('meta[name="description"]')?.setAttribute('content', language === 'es'
+      ? 'Samuel Monroy — diseñador hipermedia y filmmaker en Cartagena, Colombia. Diseño, narrativa visual, animación y experiencias digitales.'
+      : 'Samuel Monroy — hypermedia designer and filmmaker in Cartagena, Colombia. Design, visual storytelling, animation and digital experiences.');
+    updateMenuLabel();
+    updateWorks();
+    refreshStatus();
+    if ($('#workNotice')) $('#workNotice').textContent = feedState ? messages[language][feedState] : '';
+    storageSet('skitoji-lang', language);
+    document.dispatchEvent(new CustomEvent('skitoji:language', { detail: { language } }));
+  }
+  $$('[data-lang]').forEach(el => el.addEventListener('click', () => setLanguage(el.dataset.lang)));
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
-            
-            // Update all data-i18n elements (textContent)
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-            
-            // Update all data-i18n-html elements (innerHTML)
-            document.querySelectorAll('[data-i18n-html]').forEach(el => {
-                const key = el.getAttribute('data-i18n-html');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-            
-            // Update all data-i18n-placeholder elements
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
-            });
-            
-            // Update active button
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-            
-            // Save preference
-            localStorage.setItem('skitoji-lang', lang);
-        }
+  const menuButton = $('#menuToggle');
+  const nav = $('#mainNav');
+  function updateMenuLabel() {
+    const open = menuButton?.getAttribute('aria-expanded') === 'true';
+    menuButton?.setAttribute('aria-label', language === 'es' ? (open ? 'Cerrar menú' : 'Abrir menú') : (open ? 'Close menu' : 'Open menu'));
+  }
+  function setMenu(open) {
+    nav?.classList.toggle('is-open', open);
+    menuButton?.setAttribute('aria-expanded', String(open));
+    updateMenuLabel();
+  }
+  menuButton?.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') { setMenu(false); menuButton.focus(); } });
+  document.addEventListener('click', e => { if (menuButton?.getAttribute('aria-expanded') === 'true' && !e.target.closest('.site-header')) setMenu(false); });
+  const desktop = window.matchMedia('(min-width: 761px)');
+  desktop.addEventListener?.('change', e => { if (e.matches) setMenu(false); });
 
-        // Language toggle event
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                setLanguage(btn.getAttribute('data-lang'));
-            });
-        });
+  const workGrid = $('#worksGrid');
+  const filters = $('#workFilters');
+  const workCount = $('#workCount');
+  function updateWorks() {
+    const cards = workGrid ? Array.from(workGrid.children) : [];
+    let count = 0;
+    cards.forEach(card => {
+      card.hidden = filter !== 'all' && card.dataset.category !== filter;
+      if (!card.hidden) count++;
+      const cover = card.querySelector('.project-image');
+      const title = card.querySelector('h3')?.textContent || '';
+      cover?.setAttribute('aria-label', (language === 'es' ? 'Ver ' : 'View ') + title + (language === 'es' ? ' en Behance' : ' on Behance'));
+    });
+    if (workCount) workCount.textContent = String(count).padStart(2, '0') + (language === 'es' ? (count === 1 ? ' PROYECTO' : ' PROYECTOS') : (count === 1 ? ' PROJECT' : ' PROJECTS'));
+    if ($('#workEmpty')) $('#workEmpty').hidden = count > 0;
+    filters?.querySelectorAll('button').forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.filter === filter)));
+  }
+  filters?.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-filter]');
+    if (!btn) return;
+    filter = btn.dataset.filter;
+    updateWorks();
+  });
+  function node(tag, className, text) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined) el.textContent = text;
+    return el;
+  }
+  function externalLink(className, url) {
+    const link = node('a', className);
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    return link;
+  }
+  function translatedCategory(key, className = '') {
+    const label = node('span', className, categories[key][language]);
+    label.dataset.es = categories[key].es;
+    label.dataset.en = categories[key].en;
+    return label;
+  }
+  function renderProjects(projects) {
+    const content = document.createDocumentFragment();
+    projects.forEach((p, i) => {
+      const article = node('article', 'project-card');
+      article.dataset.category = p.category;
+      const cover = externalLink('project-image', p.url);
+      if (p.cover) {
+        const image = node('img');
+        image.src = p.cover;
+        image.alt = p.title;
+        image.width = 800;
+        image.height = 625;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        cover.append(image);
+      } else cover.append(node('span', 'cover-fallback', p.title));
+      const arrow = node('span', 'project-open', '↗');
+      arrow.setAttribute('aria-hidden', 'true');
+      const index = node('span', 'project-number mono', String(i + 1).padStart(2, '0'));
+      index.setAttribute('aria-hidden', 'true');
+      cover.append(arrow, index);
+      const meta = node('div', 'project-meta mono');
+      meta.append(translatedCategory(p.category), node('span', '', p.year));
+      const heading = node('h3');
+      const titleLink = externalLink('', p.url);
+      titleLink.textContent = p.title;
+      heading.append(titleLink);
+      article.append(cover, meta, heading, node('p', 'project-description', p.description));
+      content.append(article);
+    });
+    workGrid.replaceChildren(content);
+    // New categories from the sync automatically become filterable.
+    const wanted = new Set(projects.map(p => p.category));
+    wanted.forEach(key => {
+      if (Array.from(filters.children).some(btn => btn.dataset.filter === key)) return;
+      const btn = node('button', 'filter-button', categories[key][language]);
+      btn.type = 'button'; btn.dataset.filter = key;
+      btn.dataset.es = categories[key].es; btn.dataset.en = categories[key].en;
+      btn.setAttribute('aria-pressed', 'false');
+      filters.append(btn);
+    });
+    updateWorks();
+  }
+  if (workGrid) fetch('/works.json', { cache: 'no-store' })
+    .then(res => { if (!res.ok) throw new Error('Projects unavailable'); return res.json(); })
+    .then(data => {
+      const projects = normalizeProjects(data);
+      renderProjects(projects);
+      feedState = projects.length ? '' : 'empty';
+      $('#workNotice').textContent = feedState ? messages[language][feedState] : '';
+    }).catch(() => { feedState = 'offline'; $('#workNotice').textContent = messages[language].offline; });
 
-        // Load saved language preference (validated)
-        const allowedLanguages = ['en', 'es'];
-        const savedLang = localStorage.getItem('skitoji-lang');
-        setLanguage(allowedLanguages.includes(savedLang) ? savedLang : 'en');
+  form?.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (formBusy || !form.reportValidity()) return;
+    const fields = Object.fromEntries(new FormData(form));
+    if (!String(fields.name || '').trim() || !String(fields.message || '').trim()) {
+      statusKey = 'required'; status.dataset.state = 'error'; refreshStatus(); return;
+    }
+    if (fields.website) { statusKey = 'error'; status.dataset.state = 'error'; refreshStatus(); return; }
+    formBusy = true; submit.disabled = true;
+    form.setAttribute('aria-busy', 'true');
+    statusKey = 'sending'; status.dataset.state = 'sending'; refreshStatus();
+    let timer;
+    try {
+      // The existing backend silently discards forms submitted before 2500 ms.
+      const wait = 2600 - (performance.now() - startedAt);
+      if (wait > 0) await new Promise(resolve => setTimeout(resolve, wait));
+      const payload = contactPayload(fields, performance.now() - startedAt);
+      const body = JSON.stringify(payload);
+      if (new TextEncoder().encode(body).length > 32000) {
+        statusKey = 'long'; status.dataset.state = 'error'; return;
+      }
+      const controller = new AbortController();
+      timer = setTimeout(() => controller.abort(), 60000);
+      const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, signal: controller.signal });
+      const data = await response.json().catch(() => ({}));
+      if (delivered(response.ok, data)) {
+        statusKey = 'success'; status.dataset.state = 'success'; form.reset();
+      } else {
+        statusKey = response.status === 429 ? 'rate' : 'error'; status.dataset.state = 'error';
+      }
+    } catch {
+      statusKey = 'error'; status.dataset.state = 'error';
+    } finally {
+      clearTimeout(timer);
+      formBusy = false; submit.disabled = false;
+      form.removeAttribute('aria-busy');
+      submit.querySelector('[data-submit-label]').textContent = language === 'es' ? 'Enviar mensaje' : 'Send message';
+      refreshStatus();
+    }
+  });
+  // The endpoint expects JSON. Without JS, use the email link rather than a broken native POST.
+  form?.addEventListener('formdata', event => { event.formData.set('form_time', String(Math.floor(performance.now() - startedAt))); });
 
-
-        // --- Custom Cursor ---
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorRing = document.querySelector('.cursor-ring');
-        
-        let mouseX = 0;
-        let mouseY = 0;
-        let ringX = 0;
-        let ringY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            cursorDot.style.left = `${mouseX}px`;
-            cursorDot.style.top = `${mouseY}px`;
-        });
-
-        function animateCursor() {
-            // Smooth follow for the ring
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            
-            cursorRing.style.left = `${ringX}px`;
-            cursorRing.style.top = `${ringY}px`;
-            
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Hover effects
-        const interactives = document.querySelectorAll('a, button, .interactive');
-        interactives.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                document.body.classList.add('hover-active');
-            });
-            el.addEventListener('mouseleave', () => {
-                document.body.classList.remove('hover-active');
-            });
-        });
-
-        // --- Magnetic Elements ---
-        const magnetics = document.querySelectorAll('.magnetic');
-        magnetics.forEach(el => {
-            el.addEventListener('mousemove', (e) => {
-                const rect = el.getBoundingClientRect();
-                const h = rect.width / 2;
-                const v = rect.height / 2;
-                const x = e.clientX - rect.left - h;
-                const y = e.clientY - rect.top - v;
-                
-                el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-            });
-            el.addEventListener('mouseleave', () => {
-                el.style.transform = `translate(0px, 0px)`;
-            });
-        });
-
-        // --- Scroll Reveal & Counter Animation ---
-        const revealElements = document.querySelectorAll('.reveal');
-        const counters = document.querySelectorAll('.counter');
-
-        const revealCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    
-                    // Trigger counters if inside the revealed element
-                    const entryCounters = entry.target.querySelectorAll('.counter');
-                    [...entryCounters, ...(entry.target.classList.contains('counter') ? [entry.target] : [])].forEach(counter => {
-                        if (!counter.classList.contains('counted')) {
-                            animateCounter(counter);
-                            counter.classList.add('counted');
-                        }
-                    });
-                    
-                    // Optional: Unobserve after reveal
-                    // observer.unobserve(entry.target); 
-                }
-            });
-        };
-
-        const revealOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        function animateCounter(el) {
-            const target = +el.getAttribute('data-target');
-            const duration = 2000;
-            const start = performance.now();
-            
-            // Add suffix if exists in original HTML
-            const textContent = el.innerText;
-            const suffix = textContent.replace(/[0-9]/g, '');
-
-            function update(time) {
-                const elapsed = time - start;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // Easing function (easeOutExpo)
-                const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-                
-                const current = Math.floor(easeProgress * target);
-                
-                if (el.innerText !== current + suffix) {
-                    el.innerText = current + (target > 10 ? '+' : suffix); // Simplified suffix logic
-                }
-                
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                } else {
-                    el.innerText = target + (target > 1 ? '+' : '');
-                    if (target === 340) el.innerText = '+' + target + '%';
-                }
-            }
-            
-            requestAnimationFrame(update);
-        }
-
-        // --- HUD Local Time ---
-        function updateTime() {
-            const timeEl = document.getElementById('localTime');
-            if (!timeEl) return;
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { hour12: false });
-            const prefix = translations[currentLang]['hud.timePrefix'] || 'LOCAL TIME';
-            timeEl.textContent = `${prefix}: ${timeString}`;
-        }
-        setInterval(updateTime, 1000);
-        updateTime();
-
-        // --- Active Nav Link (path-based) ---
-        const navLinks = document.querySelectorAll('.nav-links a');
-        const currentPage = document.body.getAttribute('data-page') || 'home';
-        navLinks.forEach(link => {
-            const page = (link.getAttribute('href') || '').replace(/^\//, '').replace(/\/.*$/, '');
-            if (page === currentPage) link.classList.add('active');
-        });
-        // --- Hamburger Menu ---
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const navLinksContainer = document.querySelector('.nav-links');
-        
-        hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('active');
-            navLinksContainer.classList.toggle('open');
-        });
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburgerBtn.classList.remove('active');
-                navLinksContainer.classList.remove('open');
-            });
-        });
-
-        // --- Form Submission ---
-        const _pageLoadTs = Date.now();
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.currentTarget;
-            const btn = form.querySelector('.submit-btn');
-            const originalText = translations[currentLang]['contact.submit'];
-            btn.textContent = currentLang === 'en' ? 'TRANSMITTING...' : 'TRANSMITIENDO...';
-            btn.disabled = true;
-            btn.style.opacity = '0.7';
-
-            const payload = {
-                name: form.querySelector('[name="name"]').value,
-                email: form.querySelector('[name="email"]').value,
-                projectType: form.querySelector('[name="projectType"]').value,
-                message: form.querySelector('[name="message"]').value,
-                website: (form.querySelector('[name="website"]') || {}).value || '',
-                form_time: String(Date.now() - _pageLoadTs)
-            };
-
-            try {
-                const res = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json().catch(() => ({}));
-                const ok = res.ok && data.ok === true;
-                btn.textContent = ok
-                    ? (currentLang === 'en' ? 'SEQUENCE INITIATED ✓' : 'SECUENCIA INICIADA ✓')
-                    : (currentLang === 'en' ? 'ERROR — TRY AGAIN' : 'ERROR — INTÉNTALO DE NUEVO');
-                btn.style.background = 'transparent';
-                btn.style.border = ok ? '2px solid var(--accent-primary)' : '2px solid var(--accent-danger)';
-                btn.style.color = ok ? 'var(--accent-primary)' : 'var(--accent-danger)';
-                if (ok) form.reset();
-            } catch (err) {
-                btn.textContent = currentLang === 'en' ? 'ERROR — TRY AGAIN' : 'ERROR — INTÉNTALO DE NUEVO';
-                btn.style.background = 'transparent';
-                btn.style.border = '2px solid var(--accent-danger)';
-                btn.style.color = 'var(--accent-danger)';
-            }
-
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.disabled = false;
-                btn.style.background = 'var(--accent-primary)';
-                btn.style.border = 'none';
-                btn.style.color = 'var(--bg-primary)';
-                btn.style.opacity = '1';
-            }, 3500);
-        });
-
-
-        // --- Behance Works (rendered from /works.json via RSS sync) ---
-        const worksGrid = document.getElementById('worksGrid');
-        if (worksGrid) {
-            const escapeHtml = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({
-                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-            }[c]));
-
-            const reinitCardInteractions = () => {
-                document.querySelectorAll('#worksGrid .reveal').forEach(el => revealObserver.observe(el));
-                document.querySelectorAll('#worksGrid .interactive, #worksGrid a').forEach(el => {
-                    el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
-                    el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
-                });
-            };
-
-            const renderWorks = (projects) => {
-                worksGrid.innerHTML = '';
-                if (!projects.length) {
-                    worksGrid.innerHTML = '<div class="works-empty">NO PROJECTS YET</div>';
-                    return;
-                }
-                projects.forEach((p, i) => {
-                    const card = document.createElement('article');
-                    card.className = 'work-card reveal interactive';
-                    card.style.transitionDelay = ((i % 3) * 0.1) + 's';
-
-                    const cover = p.cover ? `background-image:url('${String(p.cover).replace(/['"]/g, '')}'); background-size:cover; background-position:center;` : '';
-                    const url = p.url || '#';
-
-                    card.innerHTML =
-                        `<a class="work-card-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(p.title)}"></a>` +
-                        `<div class="work-index">${String(i + 1).padStart(2, '0')}</div>` +
-                        `<div class="work-image-container" style="${cover}"></div>` +
-                        `<div class="work-info">` +
-                            `<div>` +
-                                `<h3 class="work-title">${escapeHtml(p.title)}</h3>` +
-                                `<span class="work-category" data-i18n="${escapeHtml(p.category)}"></span>` +
-                                `<p class="work-desc">${escapeHtml(p.description)}</p>` +
-                            `</div>` +
-                            `<span class="mono">${escapeHtml(p.year)}</span>` +
-                        `</div>`;
-                    worksGrid.appendChild(card);
-                });
-                reinitCardInteractions();
-                setLanguage(currentLang);
-            };
-
-            fetch('/works.json', { cache: 'no-store' })
-                .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-                .then(data => renderWorks(Array.isArray(data.projects) ? data.projects : []))
-                .catch(() => {
-                    const loading = document.getElementById('worksLoading');
-                    if (loading) loading.textContent = 'PROJECTS UNAVAILABLE — CHECK BACK SOON';
-                });
-        }
+  if ('IntersectionObserver' in window) {
+    const seen = new WeakSet();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        if (!reduceMotion.matches && !seen.has(entry.target)) entry.target.classList.add('reveal-in');
+        seen.add(entry.target); observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08 });
+    $$('.section-heading, .about-copy, .skills-panel, .services-list, .contact-copy').forEach(el => observer.observe(el));
+    const navObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      const link = nav?.querySelector('a[href="#' + entry.target.id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }), { rootMargin: '-20% 0px -50% 0px', threshold: 0 });
+    $$('main > section[id]').forEach(el => navObserver.observe(el));
+  }
+  function updateClock() {
+    const clock = $('#localTime');
+    if (clock) clock.textContent = 'CARTAGENA · ' + new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Bogota', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date());
+  }
+  updateClock();
+  setInterval(() => { if (!document.hidden) updateClock(); }, 30000);
+  if ($('#year')) $('#year').textContent = String(new Date().getFullYear());
+  setLanguage(storageGet('skitoji-lang') === 'en' ? 'en' : 'es');
+})();
