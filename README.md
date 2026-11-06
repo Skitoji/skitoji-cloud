@@ -13,7 +13,10 @@ skitoji-landing/
   app.js                     Idiomas, navegación, filtros, sync y formulario
   scene.js                   Escultura 3D original, Canvas 2D, sin librerías
   delight.js                 Experimento opcional Forma / Movimiento / Historia
-  assets/                    Símbolo S Frame vectorial (azul, tinta y marfil)
+  studio.js                  Capítulos por scroll y diario visual configurable
+  sound.js                   Sonidos breves sintetizados, activación voluntaria
+  studio-media.json          Fotografía/reel opcionales del mismo origen
+  assets/                    Símbolo Flujo vectorial (azul, tinta y marfil)
   favicon.svg                Icono local
   about.html, skills.html    Compatibilidad: redirigen a /#about y /#skills
   work.html, services.html, contact.html   Compatibilidad con rutas anteriores
@@ -25,7 +28,7 @@ behance-sync/                Sincronizador RSS existente
   behance-categories.json
 tests/                       Verificaciones sin dependencias
 DEPLOY.md                    Guía para el asistente de la VPS
-BRAND.md                     Identidad S Frame y uso del logo
+BRAND.md                     Identidad Flujo y uso del logo
 ```
 
 ## Contenido e interacción
@@ -39,7 +42,11 @@ BRAND.md                     Identidad S Frame y uso del logo
 
 ## Identidad e interacciones
 
-Logo original S Frame en SVG, integrado en navegación, favicon, About me y footer. El experimento opcional Forma / Movimiento / Historia responde al toque y al teclado. La introducción del logo dura 600 ms y no bloquea el sitio. Ambos respetan movimiento reducido. Ver [BRAND.md](BRAND.md).
+Logo seleccionado Flujo en SVG, integrado en navegación, favicon, About me y footer. El experimento opcional Forma / Movimiento / Historia responde al toque y al teclado. La introducción del logo dura 600 ms y no bloquea el sitio. Ambos respetan movimiento reducido. Ver [BRAND.md](BRAND.md).
+
+La escena cinematográfica conserva el nudo 3D del hero y cambia su cámara al desplazarse, con pausa, vista de malla y controles de capítulos. El diario visual utiliza scroll horizontal nativo y permite añadir fotografía/reel sin dependencias; ver [MEDIA.md](MEDIA.md). El control de sonido inicia apagado: al activarlo, genera tonos suaves en acciones deliberadas, nunca al escribir, pasar el puntero o hacer scroll.
+
+El [kit de Flujo para redes](brand/skitoji-flujo-kit.zip) incluye 42 gráficos en SVG/PDF, PNG transparentes y avatares con margen para recorte circular.
 
 ## Comprobaciones
 
@@ -51,6 +58,8 @@ node --check skitoji-landing/scene.js
 node tests/portfolio.test.cjs
 node tests/scene.test.cjs
 node tests/delight.test.cjs
+node tests/studio.test.cjs
+node tests/sound.test.cjs
 python3 tests/check_static.py
 ```
 

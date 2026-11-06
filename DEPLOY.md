@@ -4,7 +4,7 @@ El cambio es estático: no requiere `npm install`, compilación ni reiniciar el 
 
 ## Instrucción para el asistente de la VPS
 
-> Revisa el PR de rediseño en Skitoji/skitoji-cloud y prepara una copia de staging de su rama. Localiza primero el directorio real que Caddy sirve para skitoji.cloud y sus bind mounts: /srv/skitoji es solo un ejemplo del README. Haz un respaldo de los archivos estáticos actuales. Copia el contenido completo de skitoji-landing/ de esta rama al directorio de staging, incluidas fonts/, assets/, scene.js, delight.js y favicon.svg. No reemplaces el .env ni modifiques portfolio-form/, behance-sync/, otros dominios o servicios. Conserva el works.json actual de producción si es más reciente que el del repositorio. Revisa el staging en móvil y escritorio con la lista siguiente y facilita su URL al propietario. Publica el staging cuando el propietario lo indique; conserva el respaldo para volver atrás.
+> Revisa el PR de rediseño en Skitoji/skitoji-cloud y prepara una copia de staging de su rama. Localiza primero el directorio real que Caddy sirve para skitoji.cloud y sus bind mounts: /srv/skitoji es solo un ejemplo del README. Haz un respaldo de los archivos estáticos actuales. Copia el contenido completo de skitoji-landing/ de esta rama al directorio de staging, incluidas fonts/, assets/, scene.js, delight.js, studio.js, sound.js, studio-media.json y favicon.svg. No reemplaces el .env ni modifiques portfolio-form/, behance-sync/, otros dominios o servicios. Conserva el works.json actual de producción si es más reciente que el del repositorio. Revisa el staging en móvil y escritorio con la lista siguiente y facilita su URL al propietario. Publica el staging cuando el propietario lo indique; conserva el respaldo para volver atrás.
 
 ## Antes de publicar
 
@@ -25,6 +25,9 @@ El cambio es estático: no requiere `npm install`, compilación ni reiniciar el 
 - Con permiso del propietario para el mensaje de prueba, enviar un contacto real por /api/contact y comprobar la entrega en correo o Discord. Verificar errores y límites sin borrar el texto escrito. No considerar suficiente un HTTP 200 sin canal de entrega.
 - Confirmar la S en favicon, menú, About me y pie. El símbolo debe conservar la proporción y no mover la navegación mientras carga.
 - Probar Forma, Movimiento e Historia con ratón, toque y teclado: cada botón debe cambiar de estado, los tres juntos deben activar la respuesta del logo y volver a pulsar debe desactivarlo. Cambiar ES/EN conserva la selección. Con movimiento reducido no debe haber rebote; sin JS los controles no aparecen y queda la frase estática.
+- En la escena cinematográfica, recorrer Forma/Ritmo/Relato por scroll y con botones; comprobar cambio suave de cámara, pausa independiente y malla, sin cortar el modelo ni tapar el texto en 360 px. Con movimiento reducido debe desactivar el recorrido de cámara y conservar el giro suave acordado.
+- Activar y silenciar el sonido: al llegar debe estar apagado, no crear AudioContext ni sonar. Solo acciones deliberadas deben generar tonos breves. Cambiar de pestaña cancela sonidos.
+- Probar el diario con flechas, teclado y tacto. Las fotos/reel se configuran en studio-media.json (ver MEDIA.md). Los placeholders deben seguir presentes ante medios ausentes o fallidos. El reel no tiene autoplay.
 - Revisar consola y respuestas de fuentes, estilos, scripts y portadas. Confirmar cabeceras CSP y caché. Invalidar caché de HTML/CSS/JS cuando corresponda.
 
 ## Publicación y vuelta atrás

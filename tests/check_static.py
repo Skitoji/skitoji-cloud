@@ -81,6 +81,22 @@ class PortfolioTests(unittest.TestCase):
                 self.assertFalse(el.tag.endswith('script'))
                 self.assertFalse(el.tag.endswith('image'))
                 self.assertFalse(any(k.startswith('on') for k in el.attrib))
+    def test_motion_audio_and_optional_media_contracts(self):
+        ids={a.get('id'):a for _,a in self.doc.tags if a.get('id')}
+        for name in ['motionCanvas','motionStudy','storyMotionToggle','storySceneMode','chapterNav','journalTrack','studioPhoto','studioVideo']:
+            self.assertIn(name,ids)
+        self.assertIn('hidden',ids['soundToggle'])
+        self.assertEqual(ids['soundToggle']['aria-pressed'],'false')
+        self.assertNotIn('autoplay',ids['studioVideo'])
+        self.assertNotIn('src',ids['studioPhoto'])
+        self.assertNotIn('src',ids['studioVideo'])
+        for a in [a for t,a in self.doc.tags if t=='button' and 'data-chapter' in a]:
+            self.assertEqual(a['type'],'button')
+            self.assertIn(a['aria-controls'],ids)
+        scripts={a.get('src') for t,a in self.doc.tags if t=='script'}
+        for name in ['scene.js','sound.js','studio.js']:
+            self.assertIn('/'+name,scripts)
+            self.assertTrue((ROOT/name).is_file())
     def test_all_translation_attributes_are_paired(self):
         for _,a in self.doc.tags:
             self.assertEqual('data-es' in a,'data-en' in a)

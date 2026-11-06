@@ -1,20 +1,38 @@
-# SKITOJI — S Frame
+# SKITOJI — Flujo
 
-Símbolo original para Samuel Monroy / Skitoji. Dos cintas forman una S; el corte diagonal alude al montaje audiovisual y al paso de una idea a otra. Se preparó un concepto con generación de imagen y se reconstruyó la versión final como geometría SVG limpia, sin raster ni dependencias.
+Identidad elegida por Samuel Monroy: propuesta 06 / Flujo. S orgánica con extremos afilados y dos espacios negativos diagonales en forma de gota. La versión final se reconstruyó como un trazado SVG de color plano para conservar nitidez a cualquier tamaño.
 
-## Archivos
+## Archivos de la web
 
-- `skitoji-landing/assets/skitoji-symbol.svg`: azul cobalto `#3049e8`, uso principal sobre fondos claros.
-- `skitoji-landing/assets/skitoji-symbol-dark.svg`: tinta `#20231f`, uso monocromo sobre fondos claros.
-- `skitoji-landing/assets/skitoji-symbol-white.svg`: marfil `#f7f7f2`, uso sobre fondos oscuros.
-- `skitoji-landing/favicon.svg`: el mismo símbolo, sin fondo.
+- `skitoji-landing/assets/skitoji-symbol.svg`: azul `#3049e8`.
+- `skitoji-landing/assets/skitoji-symbol-dark.svg`: tinta `#20231f`.
+- `skitoji-landing/assets/skitoji-symbol-white.svg`: blanco `#ffffff`.
+- `skitoji-landing/assets/skitoji-symbol.png`: PNG transparente de 1024 × 1024.
+- `skitoji-landing/favicon.svg`: el mismo símbolo escalable.
 
-Conservar las proporciones del viewBox `0 0 100 104`. Tamaño recomendado: 24 px o más; dejar alrededor al menos el ancho del corte diagonal. No añadir sombras, contornos ni degradados, ni estirar o modificar los trazos. El nombre SKITOJI usa la tipografía local Space Grotesk del sitio, no texto incrustado en el símbolo.
+Mantener viewBox `0 0 100 100` y proporción cuadrada. No estirar, rellenar los espacios negativos ni añadir sombras, degradados o bordes. Azul/tinta sobre fondos claros; blanco sobre oscuros. Tamaño recomendado: 24 px o más. El nombre SKITOJI usa Space Grotesk local.
 
-## Integración e interacción
+## Kit para redes sociales
 
-El símbolo se usa en navegación, About me y pie de página. Hay una entrada de 600 ms en la marca, sin pantalla que bloquee contenido, tiempos de espera ni progreso ficticio. Se omite con movimiento reducido.
+Descargar [`brand/skitoji-flujo-kit.zip`](brand/skitoji-flujo-kit.zip). Contiene 42 gráficos más guía y manifest:
 
-El experimento opcional en About me permite conectar Forma, Movimiento e Historia. Tres botones nativos funcionan con ratón, tacto, Enter y Espacio. Al activar los tres, el símbolo responde una sola vez. Los estados son reversibles, están disponibles a lectores de pantalla y se traducen con ES/EN. Sin JS, el contenido estático sigue visible. Sin sonido, partículas ni almacenamiento adicional.
+- 3 SVG y 3 PDF vectoriales: azul, oscuro y blanco.
+- 18 PNG cuadrados transparentes: 128, 256, 512, 1024, 2048 y 4096 px en cada color.
+- 12 avatares PNG: 400, 800, 1080 y 2048 px con fondo claro, oscuro y azul.
+- 3 avatares SVG y 3 JPG de 1080 px.
 
-La animación 3D conserva el inicio automático acordado y sus controles. No se modifica el backend ni la sincronización de Behance.
+Los avatares reservan un margen del 16% por lado, validado para recortes circulares. Todos los tamaños se renderizan desde el vector; no se amplían imágenes pequeñas. El manifest registra dimensiones, variantes y SHA-256.
+
+Para regenerar el paquete con Inkscape e ImageMagick:
+
+```bash
+python3 scripts/export-brand.py
+```
+
+El script permite elegir `--master`, `--output` y `--zip`. No cambia el master.
+
+## Movimiento
+
+El logo tiene una entrada breve y el experimento reversible Forma / Movimiento / Historia en About me. La página añade un estudio cinematográfico con el mismo nudo cromado: cámara por scroll, controles de pausa y malla y respuesta más contenida con movimiento reducido. Sin bloquear la navegación ni simular una carga.
+
+Los sonidos son sintetizados originales, cortos y discretos. Empiezan apagados y solo se habilitan desde el botón visible de sonido. No se descargan pistas ni se reproducen sonidos al desplazarse, escribir o pasar el puntero.
