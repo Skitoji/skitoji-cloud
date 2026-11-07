@@ -1803,3 +1803,238 @@ button[hidden],[hidden] {
   .motion-section { height: auto; }
   .motion-stage { position: relative; top: 0; height: 620px; min-height: 0; max-height: none; }
 }
+
+/* Audiovisual edition: a camera process, editorial notes and a final scene. */
+.av-portfolio .hero h1 { letter-spacing: -.07em; }
+.av-portfolio .hero-description { max-width: 400px; }
+.av-portfolio .eyebrow { max-width: 100%; }
+.av-portfolio .hero-signature { margin-top: 38px; }
+.camera-study { height: 320vh; height: 320svh; background: #e5e8ee; }
+.camera-study .motion-stage {
+  display: grid;
+  grid-template-columns: minmax(270px, .84fr) minmax(0, 1.45fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px 30px;
+  padding: 34px var(--gutter) 20px;
+  background: radial-gradient(ellipse at 72% 42%, #fcfcff 0, #e7ebf3 47%, #d6dde9 100%);
+  height: calc(100vh - 88px);
+  height: calc(100svh - 88px);
+  min-height: 660px;
+}
+.camera-study .motion-copy { position: relative; top: auto; left: auto; width: auto; max-width: 420px; align-self: center; }
+.camera-study .motion-eyebrow { margin-bottom: 19px; font-size: 8px; }
+.camera-study .motion-copy h2 { font-size: clamp(41px, 4.1vw, 68px); line-height: 1.03; }
+.camera-study .motion-chapter { margin-top: 23px; max-width: 310px; min-height: 90px; }
+.camera-study .motion-chapter h3 { font-size: 11px; }
+.camera-study .motion-chapter p { font-size: 12px; margin-top: 9px; }
+.camera-study .motion-chapters { margin-top: 14px; gap: 5px; }
+.camera-study .motion-chapters button { padding: 8px 11px; min-height: 40px; font-size: 10px; gap: 6px; }
+.camera-study .motion-chapters button .mono { font-size: 7px; }
+.camera-inspector { pointer-events: auto; margin-top: 24px; border-top: 1px solid #b9c4d9; padding-top: 16px; }
+.inspector-eyebrow { font-size: 8px; color: #5b6680; margin-bottom: 10px; }
+.camera-part-buttons { display: flex; flex-wrap: wrap; gap: 5px; }
+.camera-part-buttons button { background: #eef1f733; border: 1px solid #bdc6d8; padding: 8px 10px; font-size: 10px; border-radius: 4px; min-height: 36px; }
+.camera-part-buttons button[aria-pressed=true] { color: var(--blue); border-color: var(--blue); background: #f9faff; }
+.camera-part-buttons button:hover { border-color: var(--blue); }
+.camera-part-detail { min-height: 74px; margin-top: 11px; max-width: 315px; }
+.camera-part-detail h4 { font-size: 11px; margin-bottom: 5px; }
+.camera-part-detail p { font-size: 11px; line-height: 1.7; color: #5b6680; }
+.camera-study #motionCanvas, .camera-study .motion-fallback { width: 65%; height: 87%; top: 0; right: 0; z-index: 1; }
+.camera-spec { position: absolute; z-index: 2; top: 24px; right: var(--gutter); display: flex; flex-direction: column; align-items: flex-end; gap: 5px; color: #5b6680; font-size: 7px; pointer-events: none; }
+.camera-study .motion-footer { position: relative; bottom: auto; left: auto; right: auto; grid-column: 1/-1; display: flex; align-items: flex-end; justify-content: space-between; gap: 34px; }
+.camera-scrub { flex: 1; max-width: 750px; display: flex; flex-direction: column; gap: 9px; }
+.camera-scrub label { font-size: 8px; color: #5b6680; }
+#cameraScrub { width: 100%; height: 28px; margin: 0; accent-color: var(--blue); cursor: ew-resize; }
+#cameraScrub:disabled { cursor: default; }
+.camera-study .scene-controls button { min-height: 40px; }
+.journal-position { align-self: center; font-size: 9px; color: var(--muted); min-width: 48px; text-align: center; }
+.av-portfolio .journal-card { flex-basis: min(42vw, 620px); }
+.av-portfolio .journal-media { aspect-ratio: 16/11; }
+.av-portfolio .journal-track { gap: 30px; }
+.av-portfolio .journal-card:nth-child(2) { padding-top: 55px; }
+.av-portfolio .journal-card:nth-child(3) { padding-top: 15px; }
+.av-portfolio .journal-card figcaption { padding-right: 25px; }
+.av-portfolio .journal-card h3 { font-size: clamp(21px,2.4vw,34px); }
+.notes-section { padding-block: 95px; }
+.notes-hint { font-size: 8px; color: var(--muted); max-width: 160px; text-align: right; }
+.notes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; margin-top: 40px; }
+.process-note { min-width: 0; }
+.process-note > summary { list-style: none; cursor: pointer; display: block; }
+.process-note > summary::-webkit-details-marker { display: none; }
+.note-cover { position: relative; display: grid; place-items: center; aspect-ratio: 4/3; overflow: hidden; margin-bottom: 23px; background: #dedfd6; }
+.note-cover > .mono { position: absolute; top: 15px; left: 16px; font-size: 9px; z-index: 2; }
+.note-cover-frame { position: absolute; width: 43%; aspect-ratio: 1; transition: transform .5s; }
+.note-cover--vision { background: #dde2f8; color: #3049e8; }
+.note-cover--vision .note-cover-frame { border: 1px solid #3049e8; transform: rotate(-10deg); box-shadow: 10px 10px 0 -1px #dde2f8,10px 10px 0 0 #3049e855,20px 20px 0 -1px #dde2f8,20px 20px 0 0 #3049e833; }
+.note-cover--vision .note-cover-frame::after { content: ''; position: absolute; inset: 28%; border-radius: 50%; background: var(--blue); }
+.note-cover--light { background: #222b3b; color: #e8edff; }
+.note-cover--light::before { content: ''; position: absolute; inset: -20%; background: conic-gradient(from 20deg at 38% 60%,transparent 0deg,#8fa2f355 30deg,#eff1ff 55deg,transparent 56deg); transform: rotate(-8deg); }
+.note-cover--light .note-cover-frame { width: 55%; border: 1px solid #adbeff66; transform: rotate(23deg); }
+.note-cover--edit { background: #d9ddd3; color: #34412c; }
+.note-cover--edit .note-cover-frame { width: 64%; aspect-ratio: 1.35; background: repeating-linear-gradient(0deg,transparent 0 17%,#d9ddd3 17% 23%),linear-gradient(90deg,#596453 0 28%,#b8c5aa 28% 51%,#3049e8 51% 70%,#818d75 70%); transform: rotate(-8deg); }
+.note-cover--edit .note-cover-frame::after { content: ''; position: absolute; top: -15%; bottom: -15%; width: 2px; background: #f7f7f2; left: 52%; }
+.process-note > summary:hover .note-cover--vision .note-cover-frame { transform: rotate(0) scale(1.04); }
+.process-note > summary:hover .note-cover--light .note-cover-frame { transform: rotate(15deg) scale(1.04); }
+.process-note > summary:hover .note-cover--edit .note-cover-frame { transform: rotate(-2deg) scale(1.04); }
+.note-category { font-size: 8px; color: var(--muted); }
+.process-note h3 { font-size: clamp(23px,2.5vw,36px); line-height: 1.15; letter-spacing: -.05em; margin-top: 12px; }
+.process-note summary > .note-intro { color: var(--muted); font-size: 12px; line-height: 1.8; margin-top: 12px; max-width: 340px; }
+.note-read { display: inline-block; font-size: 11px; margin-top: 18px; padding-bottom: 5px; border-bottom: 1px solid var(--line); }
+.process-note > summary:hover .note-read { color: var(--blue); border-color: var(--blue); }
+.note-body { margin-top: 22px; }
+.note-body > p { font-size: 14px; line-height: 1.9; margin-block: 18px; }
+.note-dialog { width: min(700px,calc(100% - 36px)); max-height: min(80vh,850px); margin: auto; padding: clamp(24px,5vw,56px); background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; overflow-y: auto; }
+.note-dialog::backdrop { background: #141b2caa; backdrop-filter: blur(6px); }
+.note-dialog-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--muted); margin-bottom: 30px; }
+.note-dialog-top .mono { font-size: 8px; }
+#noteDialogClose { width: 40px; height: 40px; background: transparent; border: 1px solid var(--line); border-radius: 50%; font-size: 22px; }
+#noteDialogClose:hover { border-color: var(--blue); color: var(--blue); }
+#noteDialogTitle { font-size: clamp(34px,5vw,58px); letter-spacing: -.06em; line-height: 1.1; }
+#noteDialogBody .note-body { margin-top: 28px; }
+.av-footer { background: var(--blue); color: #f7f7f2; padding: 0; }
+.av-footer .footer-stage { padding-top: 30px; padding-bottom: 28px; }
+.footer-topline { display: flex; justify-content: space-between; gap: 24px; color: #d0d8ff; font-size: 8px; border-top: 1px solid #c2cbff66; padding-top: 20px; }
+.footer-experience { display: grid; grid-template-columns: 1.1fr .85fr; gap: 10%; align-items: center; padding-block: 60px 45px; }
+.footer-invitation h2 { font-size: clamp(45px,5.2vw,85px); line-height: 1.04; letter-spacing: -.06em; }
+.footer-invitation h2 a { display: inline-block; padding-bottom: 8px; border-bottom: 1px solid #c2cbff99; }
+.footer-invitation h2 a:hover { color: #cfd7ff; }
+.footer-contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; margin-top: 30px; }
+.footer-contact-actions > a { font-size: 12px; padding-block: 8px; }
+#copyEmail { min-height: 38px; padding: 8px 12px; font-size: 10px; background: transparent; color: #f7f7f2; border: 1px solid #bdc8ff80; border-radius: 4px; }
+#copyEmail:hover { background: #ffffff15; }
+.copy-email-status { min-height: 20px; margin-top: 6px; font-size: 10px; color: #d0d8ff; }
+.footer-display { position: relative; aspect-ratio: 16/10; border-radius: 6px; border: 1px solid #ffffff55; background: #14204d; overflow: hidden; }
+.footer-display > .mono { position: absolute; left: 18px; right: 18px; bottom: 13px; display: flex; justify-content: space-between; font-size: 7px; color: #b1c1fd; }
+.footer-display-art { position: absolute; inset: 0; display: grid; place-items: center; transition: background .5s; background: radial-gradient(ellipse at 50% 40%,#455d9d,#14204d 70%); }
+.footer-aperture { position: absolute; width: 42%; aspect-ratio: 1; border: 1px solid #a9baffaa; border-radius: 50%; box-shadow: 0 0 0 15px #92a9ff0d,0 0 0 30px #92a9ff0a,0 0 0 45px #92a9ff07; transform: rotate(-20deg); transition: transform .6s; }
+.footer-aperture::before { content: ''; position: absolute; inset: 27%; background: #a7b7f5; clip-path: polygon(30% 0,80% 6%,100% 50%,72% 100%,20% 94%,0 47%); }
+.footer-beam { position: absolute; width: 70%; height: 75%; background: conic-gradient(from -12deg at 20% 60%, transparent 0deg,#b5c5ff44 24deg,#e5ecff 54deg,transparent 55deg); opacity: 0; transition: opacity .4s,transform .6s; transform: translateX(20px); }
+.footer-timeline { position: absolute; width: 65%; height: 38%; opacity: 0; transform: translateY(14px) rotate(-6deg); transition: transform .6s,opacity .4s; background: repeating-linear-gradient(0deg,transparent 0 18%,#14204d 18% 27%),linear-gradient(90deg,#a5b6f4 0 23%,#e1e7ff 23% 44%,#6783da 44% 77%,#c8d4ff 77%); }
+.footer-stage[data-frame=light] .footer-aperture { transform: rotate(35deg) scale(.75); opacity: .35; }
+.footer-stage[data-frame=light] .footer-beam { opacity: 1; transform: translateX(0); }
+.footer-stage[data-frame=edit] .footer-aperture { transform: scale(.65); opacity: .12; }
+.footer-stage[data-frame=edit] .footer-timeline { opacity: 1; transform: translateY(0) rotate(-6deg); }
+.footer-filmstrip { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 13px; }
+.footer-shot { min-width: 0; background: transparent; color: #d5ddff; padding: 0 0 9px; border-bottom: 2px solid #ffffff22; }
+.footer-shot[aria-pressed=true] { color: white; border-bottom-color: white; }
+.footer-shot .mono { display: block; font-size: 7px; margin-top: 8px; }
+.shot-preview { display: block; height: 45px; background: #16235c; border: 1px solid #aabbff50; border-radius: 3px; }
+.footer-shot--vision .shot-preview { background: radial-gradient(circle,#bdcbff 0 12%,#344c97 13% 29%,#b2c3ff 30% 31%,#16235c 32%); }
+.footer-shot--light .shot-preview { background: conic-gradient(from -15deg at 20% 75%,#16235c 0deg,#aebeff 35deg,#e6ebff 56deg,#16235c 57deg); }
+.footer-shot--edit .shot-preview { background: repeating-linear-gradient(0deg,transparent 0 19%,#16235c 19% 30%),linear-gradient(90deg,#a7b9ff 0 29%,#536fc2 29% 61%,#c2d1ff 61%); }
+.footer-shot:hover .shot-preview { border-color: white; }
+.footer-frame-note { margin-top: 17px; min-height: 63px; }
+.footer-frame-note h3 { font-size: 17px; letter-spacing: -.03em; }
+.footer-frame-note p { font-size: 11px; line-height: 1.8; margin-top: 6px; color: #c9d2ff; }
+.av-footer .footer-wordmark { margin-top: 20px; font-size: clamp(75px,15.8vw,250px); }
+.av-footer .footer-bottom { color: #d0d8ff; border-color: #bbc6ff80; margin-top: 35px; }
+.av-footer .footer-bottom a:hover { color: white; }
+.av-footer :focus-visible { outline-color: #f7f7f2; }
+@media (max-width: 1100px) {
+  .camera-study .motion-stage { grid-template-columns: minmax(270px,.9fr) minmax(0,1.2fr); padding-top: 25px; gap: 14px; }
+  .camera-study .motion-copy h2 { font-size: 44px; }
+  .camera-study .motion-chapters { max-width: 310px; }
+  .camera-study .motion-chapters button { padding: 8px 10px; }
+  .camera-study #motionCanvas,.camera-study .motion-fallback { width: 61%; }
+  .camera-spec { font-size: 6px; }
+  .footer-experience { gap: 6%; }
+}
+@media (max-width: 760px) {
+  .av-portfolio .eyebrow { font-size: 7px; }
+  .av-portfolio .hero-description { max-width: 370px; }
+  .camera-study { height: 330vh; height: 330svh; }
+  .camera-study .motion-stage { grid-template-columns: 1fr; grid-template-rows: 1fr auto; padding: 20px var(--gutter) 15px; gap: 8px; height: calc(100vh - 72px); height: calc(100svh - 72px); min-height: 660px; }
+  .camera-study .motion-copy { position: relative; display: block; max-width: none; align-self: start; }
+  .camera-study .motion-eyebrow { margin-bottom: 12px; font-size: 7px; }
+  .camera-study .motion-copy h2 { font-size: clamp(31px,6.6vw,47px); }
+  .camera-study .motion-copy h2 br { display: none; }
+  .camera-study .motion-copy h2 span:first-child::after { content: ' '; }
+  .camera-study .motion-chapter { margin-top: 13px; min-height: 63px; max-width: 100%; }
+  .camera-study .motion-chapter h3 { font-size: 9px; }
+  .camera-study .motion-chapter p { font-size: 10px; line-height: 1.7; margin-top: 6px; max-width: 370px; }
+  .camera-study .motion-chapters { margin-top: 10px; gap: 4px; flex-wrap: nowrap; max-width: none; }
+  .camera-study .motion-chapters button { font-size: 9px; padding: 7px 8px; min-height: 34px; gap: 5px; }
+  .camera-study .motion-chapters button .mono { font-size: 6px; }
+  .camera-study #motionCanvas,.camera-study .motion-fallback { width: 100%; height: 43%; top: 31%; }
+  .camera-spec { top: 29%; right: var(--gutter); font-size: 6px; }
+  .camera-spec span:last-child { display: none; }
+  .camera-inspector { position: absolute; left: 0; right: 0; top: 438px; margin-top: 0; padding-top: 10px; }
+  .camera-study .motion-stage { --camera-inspector-top: 67%; }
+  .inspector-eyebrow { display: none; }
+  .camera-part-buttons { gap: 5px; }
+  .camera-part-buttons button { min-height: 35px; font-size: 10px; padding: 6px 11px; }
+  .camera-part-detail { max-width: 100%; min-height: 55px; margin-top: 8px; }
+  .camera-part-detail h4 { display: none; }
+  .camera-part-detail p { font-size: 10px; line-height: 1.7; max-width: 380px; }
+  .camera-study .motion-footer { gap: 15px; padding-top: 6px; }
+  .camera-scrub label { font-size: 6px; }
+  .camera-study .scene-controls button { min-height: 36px; font-size: 7px; padding: 6px 8px; }
+  .av-portfolio .journal-card { flex-basis: 83vw; }
+  .av-portfolio .journal-track { gap: 19px; }
+  .av-portfolio .journal-card:nth-child(2) { padding-top: 28px; }
+  .av-portfolio .journal-card:nth-child(3) { padding-top: 0; }
+  .journal-position { font-size: 8px; min-width: 40px; }
+  .notes-section { padding-block: 65px; }
+  .notes-grid { grid-template-columns: 1fr; gap: 38px; margin-top: 30px; }
+  .notes-hint { display: none; }
+  .note-cover { aspect-ratio: 16/10; margin-bottom: 19px; }
+  .process-note h3 { font-size: 31px; }
+  .process-note summary > .note-intro { max-width: none; font-size: 13px; }
+  .note-read { margin-top: 14px; font-size: 12px; }
+  .note-dialog { max-height: 84vh; }
+  .footer-topline { font-size: 6px; }
+  .footer-topline > span:last-child { max-width: 110px; text-align: right; }
+  .footer-experience { grid-template-columns: 1fr; gap: 30px; padding-top: 40px; padding-bottom: 25px; }
+  .footer-invitation h2 { font-size: clamp(44px,9.3vw,68px); }
+  .footer-contact-actions { margin-top: 20px; gap: 10px 20px; }
+  .footer-contact-actions > a { font-size: 11px; }
+  .footer-display { aspect-ratio: 16/9; }
+  .footer-shot .mono { font-size: 8px; }
+  .footer-frame-note h3 { font-size: 20px; }
+  .footer-frame-note p { font-size: 12px; }
+  .av-footer .footer-wordmark { font-size: 15.8vw; margin-top: 20px; }
+  .av-footer .footer-bottom { margin-top: 22px; }
+}
+@media (max-width: 760px) and (min-height: 850px) {
+  .camera-inspector { top: 510px; }
+}
+@media (max-width: 760px) and (max-height: 731px) {
+  .camera-study { height: auto; }
+  .camera-study .motion-stage { position: relative; top: 0; height: 760px; min-height: 0; max-height: none; }
+}
+@media (min-width: 761px) and (max-height: 748px) {
+  .camera-study { height: auto; }
+  .camera-study .motion-stage { position: relative; top: 0; height: 700px; min-height: 0; max-height: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .note-cover-frame,.footer-display-art,.footer-aperture,.footer-beam,.footer-timeline { transition: none; }
+  .process-note > summary:hover .note-cover-frame { transform: none; }
+}
+/* Explicit grid rows keep text, model and controls from overlapping. */
+.camera-study .motion-stage { grid-template-rows: auto minmax(0,1fr) auto; }
+.camera-study .motion-copy { grid-column: 1; grid-row: 1; align-self: end; }
+.camera-study .camera-inspector { grid-column: 1; grid-row: 2; align-self: start; margin-top: 12px; position: relative; top: auto; left: auto; right: auto; }
+.camera-study .motion-footer { grid-row: 3; }
+@media (max-width: 760px) {
+  .camera-study .motion-stage { grid-template-rows: auto minmax(190px,1fr) auto auto; padding-block: 18px 13px; gap: 8px; }
+  .camera-study .motion-copy { grid-row: 1; align-self: start; }
+  .camera-study #motionCanvas, .camera-study .motion-fallback { position: relative; grid-column: 1; grid-row: 2; inset: auto; width: 100%; height: 100%; min-height: 190px; align-self: stretch; }
+  .camera-study .camera-inspector { grid-row: 3; position: relative; top: auto; left: auto; right: auto; margin-top: 0; padding-top: 10px; }
+  .camera-study .camera-part-detail { min-height: 35px; }
+  .camera-study .motion-footer { grid-row: 4; }
+  .camera-study .camera-spec { display: none; }
+}
+
+.note-intro { display: block; }
+@media (max-width: 760px) {
+  .camera-study .motion-chapter h3 { font-size: 10px; }
+  .camera-study .motion-chapter p { font-size: 12px; line-height: 1.6; }
+  .camera-study .motion-chapters button { font-size: 11px; padding: 8px; min-height: 38px; }
+  .camera-study .camera-part-buttons button { font-size: 11px; }
+  .camera-study .camera-part-detail p { font-size: 11px; line-height: 1.65; }
+}
+.ui-icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+.strip-star .ui-icon { width: 27px; height: 27px; }
+.tiny-star .ui-icon { width: 16px; height: 16px; }
+.contact-star .ui-icon { width: .85em; height: .85em; }
+.journal-navigation button { display: inline-grid; place-items: center; }

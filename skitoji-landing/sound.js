@@ -86,7 +86,7 @@
   });
   document.addEventListener('click', event => {
     if (!enabled || document.hidden || event.target?.closest?.('#soundToggle')) return;
-    const target = event.target?.closest?.('button[data-filter], #sceneMode, #storySceneMode, summary, a[href^="#"], button[data-spark], button[data-chapter]');
+    const target = event.target?.closest?.('button[data-filter], #sceneMode, #storySceneMode, summary, a[href^="#"], button[data-spark], button[data-chapter], button[data-camera-part], button[data-footer-frame]');
     if (!target || target.disabled) return;
     const now = performance.now();
     if (now - lastSound < 140) return;

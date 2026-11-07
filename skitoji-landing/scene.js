@@ -1,4 +1,4 @@
-/* Original procedural sculpture. Shared by the hero and scroll study; no external assets. */
+/* Original procedural hero sculpture; no external assets. */
 (() => {
   'use strict';
 
@@ -50,7 +50,7 @@
     return `rgb(${r},${g},${b})`;
   }
 
-  function createScene({ canvasId, containerSelector, motionId, modeId, scrollSectionId }) {
+  function createScene({ canvasId, containerSelector, motionId, modeId }) {
     const canvas = document.getElementById(canvasId);
     if (!canvas || typeof canvas.getContext !== 'function') return null;
     const ctx = canvas.getContext('2d', { alpha: true });
@@ -58,10 +58,9 @@
     const container = canvas.closest(containerSelector) || canvas.parentElement;
     const motionButton = document.getElementById(motionId);
     const modeButton = document.getElementById(modeId);
-    const scrollSection = scrollSectionId ? document.getElementById(scrollSectionId) : null;
     // Start on load; only the pause button changes the visitor's playback choice.
     let paused = false;
-    let wireframe = false;
+    let wireframe = true;
     let visible = true;
     let frame = 0;
     let clock = 0;
@@ -74,8 +73,6 @@
     let pointerY = 0;
     let vertices = [];
     let faces = [];
-    let targetScroll = 0;
-    let scrollProgress = 0;
 
     function createGeometry() {
       const segments = width < 600 || coarsePointer ? 120 : 180;
@@ -128,16 +125,12 @@
       ctx.fillRect(0, 0, width, height * 2);
       ctx.restore();
 
-      const progress = scrollSection ? scrollProgress : 0;
-      const storyTurn = scrollSection ? progress - 0.5 : 0;
-      const ax = 0.65 + Math.sin(clock * 0.16) * 0.13 + pointerY * 0.16 + storyTurn * 0.5;
-      const ay = -0.38 + clock * 0.12 + pointerX * 0.24 + storyTurn * 2.2;
-      const az = -0.2 + Math.sin(clock * 0.09) * 0.09 + (scrollSection ? Math.sin(progress * Math.PI) * 0.24 : 0);
-      // The story has extra breathing room for its restrained camera movement.
-      const storyScale = scrollSection ? 0.93 + 0.14 * Math.sin(progress * Math.PI) : 1;
-      const scale = Math.min(width, height) / (scrollSection ? 8.4 : 6.8) * storyScale;
-      const centerX = width * (0.5 + (scrollSection ? Math.sin(storyTurn * Math.PI) * 0.065 : 0));
-      const centerY = height * (0.46 + (scrollSection ? Math.cos(progress * Math.PI) * 0.025 : 0));
+      const ax = 0.65 + Math.sin(clock * 0.16) * 0.13 + pointerY * 0.16;
+      const ay = -0.38 + clock * 0.12 + pointerX * 0.24;
+      const az = -0.2 + Math.sin(clock * 0.09) * 0.09;
+      const scale = Math.min(width, height) / 6.8;
+      const centerX = width * 0.5;
+      const centerY = height * 0.46;
       const projected = vertices.map(({ position, normal }) => {
         const p = rotate(position, ax, ay, az);
         const n = rotate(normal, ax, ay, az);
@@ -186,11 +179,9 @@
         lastTime = now;
         if (preference.matches) {
           pointerX = pointerY = 0;
-          scrollProgress = 0;
         } else {
           pointerX += (targetX - pointerX) * 0.08;
           pointerY += (targetY - pointerY) * 0.08;
-          scrollProgress += (targetScroll - scrollProgress) * Math.min(1, elapsed * 5);
         }
         render();
       }
@@ -239,7 +230,6 @@
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-      updateScroll();
       createGeometry();
       render();
       container.classList.add('scene-ready');
@@ -258,22 +248,11 @@
       updateControls();
       render();
     });
-    function updateScroll() {
-      if (!scrollSection) return;
-      // Read layout once per scroll event. Compositing happens in the canvas RAF,
-      // never by writing styles or scrolling the document from this handler.
-      const rect = scrollSection.getBoundingClientRect();
-      const viewport = window.innerHeight || document.documentElement.clientHeight || 768;
-      const travel = Math.max(1, rect.height - viewport + 88);
-      targetScroll = Math.max(0, Math.min(1, (88 - rect.top) / travel));
-    }
-
     function preferenceChanged() {
       targetX = targetY = 0;
       // A preference update must not move a manually paused sculpture.
       if (!paused) {
         pointerX = pointerY = 0;
-        if (preference.matches) scrollProgress = 0;
         render();
       }
       updateControls();
@@ -295,7 +274,6 @@
     return {
       container,
       resize,
-      updateScroll,
       updateControls,
       preferenceChanged,
       synchronizeAnimation,
@@ -307,8 +285,7 @@
   }
 
   const scenes = [
-    { canvasId: 'heroCanvas', containerSelector: '.hero-art', motionId: 'motionToggle', modeId: 'sceneMode' },
-    { canvasId: 'motionCanvas', containerSelector: '.motion-stage', motionId: 'storyMotionToggle', modeId: 'storySceneMode', scrollSectionId: 'motionStudy' }
+    { canvasId: 'heroCanvas', containerSelector: '.hero-art', motionId: 'motionToggle', modeId: 'sceneMode' }
   ].map(createScene).filter(Boolean);
   if (!scenes.length) return;
 
@@ -321,10 +298,8 @@
   if (preference.addEventListener) preference.addEventListener('change', preferenceChanged);
   else if (preference.addListener) preference.addListener(preferenceChanged);
   document.addEventListener('visibilitychange', () => scenes.forEach((scene) => scene.synchronizeAnimation()));
-  window.addEventListener('scroll', () => scenes.forEach((scene) => scene.updateScroll()), { passive: true });
   window.addEventListener('resize', () => {
     scenes.forEach((scene) => {
-      scene.updateScroll();
       if (!('ResizeObserver' in window)) scene.resize();
     });
   }, { passive: true });

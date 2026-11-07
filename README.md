@@ -11,10 +11,12 @@ skitoji-landing/
   index.html                 Portafolio completo, contenido inicial accesible sin JS
   style.css                  Diseño responsive + fuentes locales
   app.js                     Idiomas, navegación, filtros, sync y formulario
-  scene.js                   Escultura 3D original, Canvas 2D, sin librerías
+  scene.js                   Nudo del hero, malla inicial y giro automático
+  camera.js                  Cámara 3D procedural con despiece y recomposición
   delight.js                 Experimento opcional Forma / Movimiento / Historia
-  studio.js                  Capítulos por scroll y diario visual configurable
+  studio.js                  Cuatro capítulos, scrub, piezas y diario visual
   sound.js                   Sonidos breves sintetizados, activación voluntaria
+  editorial.js               Lector de notas, fotogramas del footer y copiar correo
   studio-media.json          Fotografía/reel opcionales del mismo origen
   assets/                    Símbolo Flujo vectorial (azul, tinta y marfil)
   favicon.svg                Icono local
@@ -44,7 +46,7 @@ BRAND.md                     Identidad Flujo y uso del logo
 
 Logo seleccionado Flujo en SVG, integrado en navegación, favicon, About me y footer. El experimento opcional Forma / Movimiento / Historia responde al toque y al teclado. La introducción del logo dura 600 ms y no bloquea el sitio. Ambos respetan movimiento reducido. Ver [BRAND.md](BRAND.md).
 
-La escena cinematográfica conserva el nudo 3D del hero y cambia su cámara al desplazarse, con pausa, vista de malla y controles de capítulos. El diario visual utiliza scroll horizontal nativo y permite añadir fotografía/reel sin dependencias; ver [MEDIA.md](MEDIA.md). El control de sonido inicia apagado: al activarlo, genera tonos suaves en acciones deliberadas, nunca al escribir, pasar el puntero o hacer scroll.
+El hero conserva su nudo 3D en malla. La escena de proceso utiliza una cámara cinematográfica que se acerca, se desarma y se recompone en cuatro capítulos, con pausa, malla, deslizador e inspección de piezas. El diario visual utiliza scroll horizontal nativo con contador y permite añadir fotografía/reel; ver [MEDIA.md](MEDIA.md). Las notas se leen en un diálogo accesible y el footer permite seleccionar fotogramas y copiar el correo. La experiencia completa se documenta en [EXPERIENCE.md](EXPERIENCE.md). El control de sonido inicia apagado: al activarlo, genera tonos suaves en acciones deliberadas, nunca al escribir, pasar el puntero o hacer scroll.
 
 El [kit de Flujo para redes](brand/skitoji-flujo-kit.zip) incluye 42 gráficos en SVG/PDF, PNG transparentes y avatares con margen para recorte circular.
 
@@ -57,13 +59,15 @@ node --check skitoji-landing/app.js
 node --check skitoji-landing/scene.js
 node tests/portfolio.test.cjs
 node tests/scene.test.cjs
+node tests/camera.test.cjs
 node tests/delight.test.cjs
 node tests/studio.test.cjs
 node tests/sound.test.cjs
+node tests/editorial.test.cjs
 python3 tests/check_static.py
 ```
 
-Los tests comprueban enlaces seguros, normalización del feed, contrato de contacto y entrega real, anclas, rutas antiguas, traducciones, labels y contenido sin JS. La revisión visual en navegador y la entrega real de correo deben comprobarse en staging; el entorno de edición no dispone de navegador QA ni acceso SSH a la VPS.
+Los tests comprueban enlaces seguros, normalización del feed, estados de entrega del formulario, anclas, rutas antiguas, traducciones, labels y contenido sin JS. La revisión local también utiliza Chromium y Playwright para comprobar composición e interacciones. El formulario se prueba con una respuesta local simulada; la entrega real de correo, la CSP y el dominio se verifican en staging. No se ha accedido por SSH a la VPS.
 
 ## Backend del formulario
 

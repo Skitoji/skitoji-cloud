@@ -182,8 +182,8 @@ test('manual pause survives preference, language, visibility, and mesh changes',
   scene.mode.emit('click');
   assert.equal(scene.pendingFrames, 0, 'only explicit resume should undo manual pause');
   assert.equal(scene.motion.label.textContent, 'Reanudar');
-  assert.equal(scene.mode.label.textContent, 'Ver sólido');
-  assert.equal(scene.mode.getAttribute('aria-pressed'), 'true');
+  assert.equal(scene.mode.label.textContent, 'Ver malla');
+  assert.equal(scene.mode.getAttribute('aria-pressed'), 'false');
   scene.motion.emit('click');
   assert.equal(scene.pendingFrames, 1);
   assert.equal(scene.motion.getAttribute('aria-pressed'), 'false');
@@ -221,88 +221,14 @@ test('keeps the fallback visible when canvas cannot render or has no size', () =
   }
 });
 
-test('both scenes initialize with independent controls and shared global listeners', () => {
+test('starts with the mesh the visitor liked and only initializes the hero', () => {
   const scene = boot({ includeStory: true });
-  assert.equal(scene.pendingFrames, 2);
-  assert.equal(scene.story.controls.hidden, false);
-  assert.ok(scene.story.classes.has('scene-ready'));
-  assert.equal(scene.window.listenerCount('scroll'), 1);
-  assert.equal(scene.document.listenerCount('visibilitychange'), 1);
-  assert.equal(scene.document.listenerCount('skitoji:language'), 1);
-  scene.story.mode.emit('click');
-  assert.equal(scene.story.mode.getAttribute('aria-pressed'), 'true');
+  assert.equal(scene.mode.getAttribute('aria-pressed'), 'true');
+  assert.equal(scene.mode.label.textContent, 'Solid');
+  assert.equal(scene.pendingFrames, 1);
+  assert.equal(scene.story.controls.hidden, true, 'camera.js owns the separate story canvas');
+  assert.equal(scene.story.renderCount, 0);
+  scene.mode.emit('click');
   assert.equal(scene.mode.getAttribute('aria-pressed'), 'false');
-  scene.language('es');
-  assert.equal(scene.motion.label.textContent, 'Pausar');
-  assert.equal(scene.story.motion.label.textContent, 'Pausar');
-  assert.equal(scene.story.mode.label.textContent, 'Ver sólido');
-  scene.intersect(false, scene.story);
-  assert.equal(scene.pendingFrames, 1, 'offscreen story should not stop the hero');
-  scene.intersect(false);
-  assert.equal(scene.pendingFrames, 0);
-  scene.intersect(true, scene.story);
-  assert.equal(scene.pendingFrames, 1, 'story should resume independently');
-});
-
-test('scroll updates the story camera on animation frames without moving the hero', () => {
-  const scene = boot({ includeStory: true });
-  const control = boot({ includeStory: true });
-  const renderCount = scene.story.renderCount;
-  scene.scroll(-356);
-  assert.equal(scene.story.renderCount, renderCount, 'scroll handler should not draw synchronously');
-  for (let i = 0; i < 8; i++) {
-    const time = 1000 + i * 40;
-    scene.step(time);
-    control.step(time);
-  }
-  assert.notDeepEqual(scene.story.firstPoint, control.story.firstPoint, 'scroll should alter the story composition');
-  assert.deepEqual(scene.firstPoint, control.firstPoint, 'hero rotation should be independent of story scroll');
-});
-
-test('manual story pause freezes its camera through scrolling until explicit resume', () => {
-  const scene = boot({ includeStory: true });
-  scene.step(1000);
-  scene.step(1040);
-  scene.story.motion.emit('click');
-  const frozen = scene.story.firstPoint;
-  const renderCount = scene.story.renderCount;
-  scene.scroll(-800);
-  scene.step(1080);
-  scene.step(1120);
-  assert.equal(scene.story.renderCount, renderCount);
-  assert.deepEqual(scene.story.firstPoint, frozen);
-  scene.story.motion.emit('click');
-  scene.step(1160);
-  assert.deepEqual(scene.story.firstPoint, frozen, 'resuming should not snap to the new scroll position');
-  scene.step(1200);
-  assert.notDeepEqual(scene.story.firstPoint, frozen, 'camera should ease toward the new position after resume');
-});
-
-test('reduced motion keeps slower autoplay but disables story scroll and pointer modulation', () => {
-  const scene = boot({ includeStory: true, reducedMotion: true });
-  const control = boot({ includeStory: true, reducedMotion: true });
-  scene.scroll(-800);
-  scene.story.container.emit('pointermove', { clientX: 280, clientY: 280 });
-  for (let i = 0; i < 4; i++) {
-    const time = 1000 + i * 40;
-    scene.step(time);
-    control.step(time);
-  }
-  assert.deepEqual(scene.story.firstPoint, control.story.firstPoint);
-  assert.equal(scene.pendingFrames, 2, 'autoplay remains active when reduced motion is requested');
-});
-
-test('story camera keeps the complete sculpture inside a narrow canvas across chapters', () => {
-  const scene = boot({ includeStory: true, width: 280 });
-  let time = 1000;
-  for (const top of [88, -356, -800]) {
-    scene.scroll(top);
-    for (let i = 0; i < 12; i++) {
-      scene.step(time);
-      time += 40;
-      const bounds = scene.story.bounds;
-      assert.ok(bounds.minX >= 0 && bounds.maxX <= 280, 'sculpture should fit horizontally');
-      assert.ok(bounds.minY >= 0 && bounds.maxY <= 280, 'sculpture should fit vertically');
-    }
-  }
+  assert.equal(scene.mode.label.textContent, 'Wireframe');
 });

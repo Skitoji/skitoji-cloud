@@ -94,9 +94,30 @@ class PortfolioTests(unittest.TestCase):
             self.assertEqual(a['type'],'button')
             self.assertIn(a['aria-controls'],ids)
         scripts={a.get('src') for t,a in self.doc.tags if t=='script'}
-        for name in ['scene.js','sound.js','studio.js']:
+        for name in ['scene.js','camera.js','sound.js','studio.js','editorial.js']:
             self.assertIn('/'+name,scripts)
             self.assertTrue((ROOT/name).is_file())
+    def test_audiovisual_camera_notes_and_footer_contracts(self):
+        ids={a.get('id'):a for _,a in self.doc.tags if a.get('id')}
+        self.assertIn('enfoque audiovisual',self.text)
+        chapters=[a for t,a in self.doc.tags if t=='button' and 'data-chapter' in a]
+        self.assertEqual([a['data-chapter'] for a in chapters],['0','1','2','3'])
+        self.assertEqual(ids['cameraScrub']['type'],'range')
+        self.assertEqual(ids['cameraScrub']['max'],'100')
+        self.assertIn('disabled',ids['cameraScrub'])
+        parts=[a for t,a in self.doc.tags if t=='button' and 'data-camera-part' in a]
+        self.assertEqual({a['data-camera-part'] for a in parts},{'lens','sensor','body','monitor'})
+        self.assertEqual(sum(a['aria-pressed']=='true' for a in parts),0)
+        self.assertIn('hidden',ids['cameraParts'])
+        self.assertEqual(sum(t=='details' and 'process-note' in a.get('class','') for t,a in self.doc.tags),3)
+        self.assertEqual(ids['noteDialog']['aria-labelledby'],'noteDialogTitle')
+        frames=[a for t,a in self.doc.tags if t=='button' and 'data-footer-frame' in a]
+        self.assertEqual({a['data-footer-frame'] for a in frames},{'vision','light','edit'})
+        self.assertEqual(sum(a['aria-pressed']=='true' for a in frames),1)
+        self.assertEqual(ids['copyEmail']['data-email'],'smonroysalas@skitoji.cloud')
+        for a in parts+frames:
+            self.assertEqual(a['type'],'button')
+            self.assertIn(a['aria-controls'],ids)
     def test_all_translation_attributes_are_paired(self):
         for _,a in self.doc.tags:
             self.assertEqual('data-es' in a,'data-en' in a)
