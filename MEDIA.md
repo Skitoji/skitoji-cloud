@@ -21,6 +21,6 @@ Solo se admiten rutas del mismo origen bajo `/assets/`, sin parámetros ni segme
 
 El video utiliza controles nativos, `playsinline` y precarga de metadatos; no tiene autoplay. Preparar medios optimizados y una imagen de portada. Si el video contiene diálogo o información sonora necesaria, añadir subtítulos WebVTT y su `<track>` en el HTML antes de publicarlo. No insertar video como sustituto de contenido textual esencial.
 
-Mantener el proxy same-origin de `/api/contact`, las fuentes locales y la sincronización de `works.json`. El audio de interfaz usa Web Audio y no requiere ningún archivo de sonido externo ni cambiar la CSP.
+Mantener el proxy same-origin de `/api/contact`, las fuentes locales y la sincronización de `works.json`. La interfaz no contiene efectos de sonido ni motor Web Audio. Un reel real conserva sus controles nativos y puede incluir su propia pista de audio; nunca se reproduce automáticamente.
 
-La referencia consultada fue [Studio KARO](https://www.karocrafts.com/): su presentación combina imagen, video, música y diseño editorial. Los modelos, medios, código de interacción y sonidos de este portafolio son propios; no se usan los assets ni la música de esa web.
+La referencia consultada fue [Studio KARO](https://www.karocrafts.com/): su presentación combina imagen, video y diseño editorial. Los modelos y el código de interacción del portafolio son propios; no se usan los assets ni la música de esa web. El proyector del footer se genera mediante geometría 3D y no necesita cargar otro video o imagen.

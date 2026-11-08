@@ -122,22 +122,6 @@ test('unsupported native dialog preserves details and failed opening never preve
   assert.doesNotThrow(() => setup({ notesPresent: false }));
 });
 
-test('footer frame selection is reversible and retains its state when language changes', () => {
-  const { ids, frames, stage, document } = setup();
-  assert.equal(stage.dataset.frame, 'vision');
-  assert.equal(frames[0].getAttribute('aria-pressed'), 'true');
-  frames[1].emit('click');
-  assert.equal(stage.dataset.frame, 'light');
-  assert.equal(frames[0].getAttribute('aria-pressed'), 'false');
-  assert.equal(frames[1].getAttribute('aria-pressed'), 'true');
-  assert.equal(ids.footerFrameTitle.textContent, 'La luz también cuenta.');
-  document.emit('skitoji:language', { detail: 'en' });
-  assert.equal(stage.dataset.frame, 'light');
-  assert.equal(ids.footerFrameTitle.textContent, 'Light tells a story, too.');
-  frames[2].emit('click'); frames[0].emit('click');
-  assert.equal(stage.dataset.frame, 'vision');
-});
-
 test('clipboard activates only after a deliberate click and reports real success', async () => {
   const { ids, copied, document } = setup();
   assert.equal(ids.copyEmail.hidden, false);
@@ -161,10 +145,9 @@ test('clipboard denial is announced without claiming success, and missing API ke
   assert.equal(missing.ids.copyEmail.hidden, true);
 });
 
-test('loading the enhancement twice never doubles modal, footer or clipboard listeners', () => {
+test('loading the enhancement twice never doubles modal or clipboard listeners', () => {
   const { reload, summary, frames, ids } = setup();
   reload();
   assert.equal(summary.listeners('click'), 1);
-  assert.equal(frames[0].listeners('click'), 1);
   assert.equal(ids.copyEmail.listeners('click'), 1);
 });

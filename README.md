@@ -10,13 +10,14 @@ Sitio estático de una sola página, sin dependencias ni compilación. About me 
 skitoji-landing/
   index.html                 Portafolio completo, contenido inicial accesible sin JS
   style.css                  Diseño responsive + fuentes locales
+  interactive.css            Laboratorio de encuadre, herramientas, franja y proyector
   app.js                     Idiomas, navegación, filtros, sync y formulario
   scene.js                   Nudo del hero, malla inicial y giro automático
   camera.js                  Cámara 3D procedural con despiece y recomposición
-  delight.js                 Experimento opcional Forma / Movimiento / Historia
+  workbench.js               Formatos de entrega, herramientas y control de la franja
   studio.js                  Cuatro capítulos, scrub, piezas y diario visual
-  sound.js                   Sonidos breves sintetizados, activación voluntaria
-  editorial.js               Lector de notas, fotogramas del footer y copiar correo
+  projector.js               Proyector 3D, bobinas, luz y pausa
+  editorial.js               Lector de notas y copiar correo
   studio-media.json          Fotografía/reel opcionales del mismo origen
   assets/                    Símbolo Flujo vectorial (azul, tinta y marfil)
   favicon.svg                Icono local
@@ -44,9 +45,13 @@ BRAND.md                     Identidad Flujo y uso del logo
 
 ## Identidad e interacciones
 
-Logo seleccionado Flujo en SVG, integrado en navegación, favicon, About me y footer. El experimento opcional Forma / Movimiento / Historia responde al toque y al teclado. La introducción del logo dura 600 ms y no bloquea el sitio. Ambos respetan movimiento reducido. Ver [BRAND.md](BRAND.md).
+Logo seleccionado Flujo en SVG, integrado en navegación, favicon, About me y footer. Su introducción breve respeta movimiento reducido y no bloquea el sitio. Ver [BRAND.md](BRAND.md).
 
-El hero conserva su nudo 3D en malla. La escena de proceso utiliza una cámara cinematográfica que se acerca, se desarma y se recompone en cuatro capítulos, con pausa, malla, deslizador e inspección de piezas. El diario visual utiliza scroll horizontal nativo con contador y permite añadir fotografía/reel; ver [MEDIA.md](MEDIA.md). Las notas se leen en un diálogo accesible y el footer permite seleccionar fotogramas y copiar el correo. La experiencia completa se documenta en [EXPERIENCE.md](EXPERIENCE.md). El control de sonido inicia apagado: al activarlo, genera tonos suaves en acciones deliberadas, nunca al escribir, pasar el puntero o hacer scroll.
+El hero conserva su nudo 3D en malla. La escena de proceso utiliza una cámara cinematográfica que se acerca, se desarma y se recompone en cuatro capítulos, con pausa, malla, deslizador e inspección de piezas. El cierre incorpora un proyector 3D con bobinas animadas, pausa y control de intensidad de luz: de la captura a la pantalla.
+
+El laboratorio de encuadre compara formatos 16:9, 4:3 y 9:16, calcula la altura para un ancho de entrega y permite mostrar una guía de tercios. Las 18 herramientas son botones: muestran su aplicación en el flujo de trabajo y enlazan con la etapa correspondiente de la cámara. La franja de disciplinas se desplaza de forma continua, con pausa explícita, pausa por foco/puntero y estado inicial estático si se solicita movimiento reducido.
+
+El diario visual utiliza scroll horizontal nativo con contador y permite añadir fotografía/reel; ver [MEDIA.md](MEDIA.md). Las notas se leen en un diálogo accesible y se conserva la acción de copiar correo. No hay botón, motor ni efectos de sonido de interfaz. La experiencia completa se documenta en [EXPERIENCE.md](EXPERIENCE.md).
 
 El [kit de Flujo para redes](brand/skitoji-flujo-kit.zip) incluye 42 gráficos en SVG/PDF, PNG transparentes y avatares con margen para recorte circular.
 
@@ -60,14 +65,14 @@ node --check skitoji-landing/scene.js
 node tests/portfolio.test.cjs
 node tests/scene.test.cjs
 node tests/camera.test.cjs
-node tests/delight.test.cjs
+node tests/workbench.test.cjs
 node tests/studio.test.cjs
-node tests/sound.test.cjs
+node tests/projector.test.cjs
 node tests/editorial.test.cjs
 python3 tests/check_static.py
 ```
 
-Los tests comprueban enlaces seguros, normalización del feed, estados de entrega del formulario, anclas, rutas antiguas, traducciones, labels y contenido sin JS. La revisión local también utiliza Chromium y Playwright para comprobar composición e interacciones. El formulario se prueba con una respuesta local simulada; la entrega real de correo, la CSP y el dominio se verifican en staging. No se ha accedido por SSH a la VPS.
+Las comprobaciones cubren enlaces seguros, feed, estados del formulario, anclas, rutas antiguas, traducciones, labels, cálculo de dimensiones, estados de interacción y geometría 3D. La revisión de composición e interacciones se realiza con Chromium y Playwright. El formulario se prueba con una respuesta local simulada; la entrega real de correo, la CSP y el dominio se verifican en staging. El estado de publicación se debe comprobar en la VPS.
 
 ## Backend del formulario
 

@@ -33,6 +33,6 @@ El script permite elegir `--master`, `--output` y `--zip`. No cambia el master.
 
 ## Movimiento
 
-El logo tiene una entrada breve y el experimento reversible Forma / Movimiento / Historia en About me. El hero conserva el nudo inicial en malla. La página añade una cámara cinematográfica 3D que se desarma y recompone por scroll, con capítulos, deslizador, inspección de piezas, pausa y malla. El recorrido usa cambios inmediatos al solicitar movimiento reducido. Sin bloquear la navegación ni simular una carga.
+El logo tiene una entrada breve; su forma y archivos maestros se conservan. El hero mantiene el nudo inicial en malla. La cámara cinematográfica 3D se desarma y recompone por scroll, con capítulos, deslizador, inspección de piezas, pausa y malla. El cierre muestra un proyector 3D con bobinas y luz graduable. El recorrido de la cámara usa cambios inmediatos al solicitar movimiento reducido; el proyector comienza estático con esa preferencia.
 
-Los sonidos son sintetizados originales, cortos y discretos. Empiezan apagados y solo se habilitan desde el botón visible de sonido. No se descargan pistas ni se reproducen sonidos al desplazarse, escribir o pasar el puntero.
+La franja de disciplinas aporta movimiento continuo con control de pausa. El laboratorio de encuadre y las herramientas tienen funciones concretas sin modificar ni deformar el símbolo. La interfaz no reproduce sonidos y no incluye control de audio.
